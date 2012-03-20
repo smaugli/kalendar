@@ -1,0 +1,62 @@
+Mitteformaalne.ee old event calendar documentation
+
+Coded in Zend Frameweork. Code is not struturable. It's fully overridden the MVC and zend architecture. For example the each and every form should be handled by zend but it's breaked.
+
+There are 3 types of users: "organisations" and "teachers". Both can add training events to the calendar that "admin user" must activate before they appear in calendar. Also there are of course unregistered users.
+
+***Unregistered users***
+Users that can see events in calendar and teachers’ and organisations’ profiles. They can register themselves to events when event has registration form.
+
+***Calendar frontpage***
+http://mitteformaalne.ee/kalendar 
+1.	At the very top right corner there’s "Otsi koolitust kogu kalendrist" search box to search for a training event from Ahole calendar.
+2.	Main area where you see one month. In the boxes there are titles of the training events that are in that day and below title the date of that event. One event can b eduring multiple days so it will appear in many days in calendar.
+3.	Below "Otsi koolitajat" search box to search for a teacher account. Search for example for string "kaspar" and you’ll find one teacher.
+4.	At the very bottom "Otsi organisatsiooni" search box to search for a organisation. Type there string "kool" for example to see search results.
+
+***Event page***
+http://mitteformaalne.ee/kalendar/event/63 - example event
+Here you can see all the information about the event that was enetered by the teacher or organisation or admin user. Below there’s link ’Registreeru koolitusele’ where unregistered user can register himself for that event.
+At the topp of the page after ’Koolituse autor:’ there’s link to the profile page of the autor of that event.
+
+***Profile page***
+http://mitteformaalne.ee/kalendar/user/kaspar333
+Here you can see all the information that teacher or organisation has entered during the registration.
+
+***User type "teacher"***
+Teachers are individuals who can register and add events to the calendar. Teachers may belong into organisation. Login for all user types: http://mitteformaalne.ee/kalendar/index/login
+
+Teacher registration: http://mitteformaalne.ee/kalendar/index/register 
+At first page you select optionally from drop-down menu the organisation where you belong and below choose username ’kasutajanimi’ and password ’parool’ – all ohter fields you can use lorem-ipsum data.
+After you click submit button next page will load and all information that is filled in here will be displayed under the teacher’s profile page for all unregistered users. You don’t need to understand what are the input fields in Estonian language as lorem ipsum information you input here will be just displayed under profile page with same tites.
+When you click submit there then you’ll be taken automatically to your teacher’s admin panel.
+
+***Teacher admin panel***
+http://mitteformaalne.ee/kalendar/index/login
+At the right side in the top table there are contests for a teacher where each teacher can apply. Below there is a table where teacher can see people who have registered for his/her events if he/she has added any events and someone has registered.
+In the left menu:
+•	Koolitused – events. All events you have added are listed here. If you click from here ’Lisa Uus Koolitus’ then you can add new event. Once new event added admin must click ’accept’ before it can be seen in calendar.
+•	Minu konto – your information that you added at your registration first page
+•	Minu profiil – your profile information that you enetered at registration second page.
+•	Registreerumisvormid – can create and modify registration forms that will be filled in by unregistered users who want to attend on the event.
+
+***Add event page***
+http://mitteformaalne.ee/kalendar/profile/trainingadd
+From top: title of event, keywords, description, image, type, date + location (if you click + then you can add more date + location fields), price (checkbox ’for free’), registration deadline, language checkboxes, sector, URL, group max. size, organisation(s), regional, add document, how to register (online registration form drop-down, PDF upload or external URL), contact info, extra info.
+
+***User type "organisation"***
+Basically same as user type ’teacher’ – just less fields on registration and obviously organisation can’t belong under any other organisation but teachers can belong under organisation. Registration URL: http://mitteformaalne.ee/kalendar/index/organization 
+
+***User type "admin"***
+There’s only one admin user with password: admin
+From left menu:
+•	Koolitused – events. At the top there are ’Tulevad koolitused’ – upcoming events and below are ’Möödunud koolitused’ – events with date in past. Under column ’Staatus’ – status there is either link ’Aktiveeri’ – aktivate for events that are not activated yet and link ’Deaktiveeri’ – deactivate for the evets that are already activated. Also there’s X behind each event to delete it.
+•	Koolitajad – list of all teachers.
+•	Organisatsioonid – list of all organisations.
+•	Koolitaja konkursid – admin user can add and manage contests to find a right teacher(s) for a training event. Totally separaate functionality that is not displayed in calendar but only teachers’ admin page’s front page.
+•	Sektorid – when you add event then there is a drop-down menu ’sector’ and items managed from here are in that drop-down menu.
+•	Töökeeled – from here admin manages ’language’ checkboxes that can be selected while adding event.
+•	Maakonnad – counties that can be selected while registering.
+•	Sihtgrupid – checkboxes again that can be used while teacher registration.
+•	Teemad – same as above.
+•	Koolituse vormid – registration forms.
