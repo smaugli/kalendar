@@ -1,0 +1,118 @@
+
+<div id="kalender" style="margin:0 auto;">
+    <div id="spiraal_start"></div>
+    <table class="shadow">
+        <thead>
+            <tr id="spiraal">
+                <td colspan="7"></td>
+            </tr>
+
+            <tr id="head">
+                <td colspan="7">	
+                    <ul class="nav">
+                        <li class="prevli">
+                            <a class="prev" href="calendar/<?php echo $this->beforeUrl; ?>"> <-eelm. </a>
+                        </li>
+                        <li><span><?php echo strftime("%Y-%b",strtotime($this->date)); ?></span></li>
+                        <li class="nextli">
+                            <a class="prev" href="calendar/<?php echo $this->afterUrl; ?>"> järgm.-> </a>
+                        </li>	
+                    </ul>
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td id="ep">E</td>
+            <td id="et">T</td>
+            <td id="ek">K</td>
+            <td id="en">N</td>
+            <td id="er">R</td>
+            <td id="el">L</td>
+            <td id="epp">P</td>
+        </tr>
+        <tr class="tr_days">
+            <?php
+            $dayofweek = $this->dayofweek + 1;
+            $first = true;
+            for ($i = 1; $i < $this->numdays + 1; $i++) {
+                ?>
+                <?php
+                if ($dayofweek == 0 || $dayofweek == 7) {
+                    $first = false;
+                }
+                if ($first) {
+                    echo "<td colspan='$dayofweek'></td>";
+                    $first = false;
+                    $td_count = $dayofweek;
+                } else {
+                    $td_count++;
+                }
+                ?>
+                <td class="tooltip"><h1><?php echo $i ?></h1>
+
+                    <?php
+                    //        date
+                    $dayEvents = array();
+                    $counter = $i;
+                    if ($counter < 10) {
+                        $counter = '0' . $counter;
+                    }
+                    if (isset($this->calendarItems[$this->date . '-' . $counter])) {
+
+                        $dayEvents = $this->calendarItems[$this->date . '-' . $counter];
+                    }
+
+                    if (count($dayEvents) > 0) {
+                        //            var_dump($dayEvents);exit;
+                        ?>
+                <li><span class="main"><a href="#"><?php echo count($dayEvents); ?> üritus(t)</a>
+                        <span>
+                            <ul>
+                                <span><a class="tool" href="#"></a></span>
+                                <?php
+                                foreach ($dayEvents as $dayEvent) {
+                                    ?>
+                                    <li>
+                                        <a href="event/<?php echo $dayEvent['id'] ?>" ><?php echo $dayEvent['title'] ?></a>
+                                    </li> 
+                                <?php } ?>
+                            </ul>
+                        </span></span></li>						
+                <?php
+            }
+            ?>
+            </td>
+            <?php
+            if ($dayofweek % 7 == 6) {
+                $tr_closed = true;
+                ?>
+                </tr>
+                <tr class="tr_days">
+                    <?php
+                    $tr_closed = false;
+                    $td_count = 0;
+                }
+                $dayofweek++;
+                ?>
+            <?php } ?>
+            <?php
+            if (!$tr_closed) {
+                echo "<td colspan='" . (7 - $td_count) . "'>&nbsp;</td>";
+                echo "</tr>";
+            }
+            ?>
+    </table>
+
+
+
+    <!--<a href="index/register">Register Teacher</a><br />
+<a href="index/organization">Register Organization</a><br />
+<a href="index/login">Login</a><br /><br />-->
+<!--<html><body>-->
+<p>&nbsp;</p>
+    <form action="" method="post">
+        Otsi koolitust kogu kalendrist:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+        <input type="hidden" name="findMode" value="findEvent" />
+        <input type="text" name="search" />
+        <input type="submit" name="submit" value="Otsi"/>
+    </form>

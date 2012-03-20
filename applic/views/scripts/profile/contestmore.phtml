@@ -1,0 +1,74 @@
+<a href="profile"><- tagasi</a>
+<?php
+
+$item = $this->item;
+
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<table border="0" align="left" width="90%">
+<tbody><tr colspan="3">
+<td><h2>Konkurss leidmaks koolitajat "<?php echo $item['title']; ?>"</h2></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%" colspan="4">
+<form action="profile/contest" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label><b>Korraldaja:</b> </label></td><td><?php echo $item['organiser']; ?></td>
+        </tr>
+         <tr>
+            <td><label><b>Korraldaja email:</b> </label></td><td><?php echo $item['email']; ?></td>
+        </tr>
+        <tr>
+            <td><label><b>Info konkursi kohta:</b> </label></td><td>
+               <?php echo $item['details']; ?>
+            </td>
+        </tr>
+        <tr>
+            <td> <label><b>Lae alla fail:</b> </label></td><td> <a href="<?php echo ROOT_URL?>/img/contests/<?php echo $item['contest_file']; ?>"><?php echo $item['contest_description']; ?></a></td>
+        </tr>
+         <tr>
+            <td><b>Link:</b> </td>
+            <td><a href="<?php echo $item['contest_link']; ?>"><?php echo $item['link_description']; ?></a></td>
+        </tr>
+      <tr>
+            <td><label><b>Kandideerimistingimused:</b>&nbsp;&nbsp;&nbsp;&nbsp; </label></td><td>
+                <?php echo $item['terms']; ?>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Toimumise aeg:</b> </td>
+            <td> 
+	    <?php setlocale(LC_ALL, 'et_EE.UTF-8', 'et_EE', 'et', 'ee');
+            echo strftime("%A, %e. %B %Y", strtotime($item['date'])); ?>
+	    &nbsp;&nbsp;<b>Asukoht:</b> <?php echo $item['location']; ?></td>
+        </tr>
+
+        <tr>
+            <td><label><b>Keeled:</b> </label></td>
+            <td>
+                <?php
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+                ?>
+               <?php echo $language['name']; ?>,
+                <?php } } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;<br /><a href="contestassign/<?php echo $item['id']; ?>"><b>Kandideerin koolitajaks</b></a></td>
+        
+        </tr>
+  
+    </table>
+</form>
+    </td>
+</tr>
+</tbody>

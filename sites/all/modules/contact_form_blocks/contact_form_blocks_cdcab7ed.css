@@ -1,0 +1,5 @@
+/* $Id: contact_form_blocks.css,v 1.1.4.1 2009/08/19 22:23:54 fuerst Exp $ */
+/* Reset the fixed width of input form text fields to use a dynamic width depending on the parent elements */
+div.sidebar div.block-contact_form_blocks input[type=text] {
+  width: 94%;
+}

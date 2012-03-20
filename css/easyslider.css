@@ -1,0 +1,282 @@
+#slider .frame {
+	background: url(../images/picture.png) top left no-repeat;
+	width: 1000px; 
+	height: 518px;
+	position: absolute;
+	z-index: 42;
+	top:0;
+	left: 0;
+	display: block;
+}
+
+#slider {
+	padding: 11px 0 0 16px;
+}
+
+#slider ul, #slider li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	display: block;
+	height: 518px;
+	}
+
+
+#slider li{ 
+	width:968px;
+	height:507px;
+	overflow:hidden; 
+	display: block;
+	position: relative;
+	}	
+	
+	
+#slider li .pcont{
+	display: block;
+	width: 968px;
+	height: 507px;
+}
+
+#slider li .pcont h1 {
+	-moz-opacity: 0.95; 
+	opacity: 0.95;
+	display: block;
+}
+
+
+#slider li .pcont h1.hidden, #slider li .pcont h2.hidden {
+	display: none;
+}
+
+
+
+#slider li .pcont h2{
+	-moz-opacity: 0.65; 
+	opacity: 0.65;
+	display: block;
+	padding: 0 0 10px 0;
+}
+
+
+#slider li .pcont .arglist {
+	-moz-opacity: 0.65; 
+	opacity: 0.65;
+	background: url(../images/arrow.png) left center no-repeat;
+	display: block;
+	padding: 0 0 0 8px;
+	font-size: 11px;
+}
+
+#slider li .pcont .arglist li{
+	height: 16px;
+	clear: both;
+	padding: 0 0 0 10px;
+}
+
+	
+#picture #controls {
+	position: absolute;
+	z-index: 102;
+	top:36px;
+	right: 36px;
+}
+
+#picture #controls li {
+	display: block;
+	width:26px;
+	height: 29px;
+	float: left;
+}
+
+#picture #controls li a, #info #controls li a {
+	background: url(../images/slidernav.png) center top;
+	display: block;
+	width: 26px;
+	height: 20px;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 9px 0 0 0;
+	-moz-opacity: 0.65; opacity: 0.65;
+}
+
+#picture #controls li a:hover, #info #controls li a:hover {
+	background-position: center bottom;
+	-moz-opacity: 1; opacity: 1;
+}
+
+
+#picture #controls li:first-child a, #info #controls li:first-child a {
+	background-position: left top;
+}
+
+#picture #controls li:last-child a, #info #controls li:last-child a {
+	background-position: right top;
+}
+
+#picture #controls li.current a, #info #controls li.current a {
+	background-position: center bottom;
+}
+
+#picture #controls li.current:first-child a, #info #controls li.current:first-child a  {
+	background-position: left bottom;
+}
+#picture #controls li.current:last-child a, #info #controls li.current:last-child a {
+	background-position: right bottom;
+}
+
+/* // packages */
+
+#infoslider {
+	width: 550px;
+	height: 289px;
+	float: left;
+	margin: 16px 0 0 16px;
+}
+
+#infoslider ul, #infoslider li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	display: block;
+	height: 289px;
+	overflow:hidden; 
+	}
+	
+#infoslider li{ 
+	width:555px;
+	height:290px;
+	overflow:hidden; 
+	}	
+	
+#infoslider #controls {
+	position: absolute;
+	z-index: 102;
+	top:36px;
+	right: 36px;
+}
+
+#infoslider #controls li {
+	display: block;
+	width:26px;
+	float: left;
+}
+
+
+.con_general_info #prevBtn, .con_general_info #nextBtn {
+	position: absolute;
+}
+
+
+.con_general_info #prevBtn{
+
+	top:230px;
+	left: 16px;
+}
+
+.con_general_info #prevBtn a{
+	background: url(../images/infoslider_arrows.png) top left no-repeat;
+	text-indent: -99999px;
+	display: block;
+	width: 20px;
+	height: 30px;
+}
+
+.con_general_info #nextBtn{
+	top:230px;
+	left: 590px;
+}
+
+.con_general_info #nextBtn a{
+	background: url(../images/infoslider_arrows.png) bottom right no-repeat;
+	text-indent: -99999px;
+	display: block;
+	width: 20px;
+	height: 30px;
+}
+
+
+/* // features */
+
+#features {
+	width: 583px;
+	height: 365px;
+	float: left;
+	margin: 46px 0 0 0;
+	overflow: hidden;
+}
+
+#features ul, #features li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	display: block;
+	height: 365px;
+	overflow: hidden;
+	}
+	
+#features li{ 
+	width: 583px;
+	height: 365px;
+	overflow:hidden; 
+	}	
+	
+#features #controls {
+	position: absolute;
+	z-index: 102;
+	top:36px;
+	right: 36px;
+}
+
+#info #controls {
+	display: block;
+	position: absolute;
+	top:10px;
+	right: 400px;
+	z-index: 98;
+}
+
+#info #controls li {
+	display: block;
+	width:26px;
+	float: left;
+}
+
+.pointer {
+	display: block;
+	width: 968px;
+	height: 507px;
+	position: absolute;
+	z-index: 52;
+}
+
+
+/*
+
+
+
+#info #controls li {
+	display: block;
+	float: left;
+}
+
+
+#info #controls li a{
+	background: url(../images/infosliderdot.png) bottom left no-repeat;
+	display: block;
+	width: 12px;
+	height: 9px;
+	cursor: pointer;
+	text-indent: -99999px;
+}
+
+
+#info #controls li.current a{
+	background-position: top left;
+}
+
+#info #controls li a:hover{
+	background-position: top left;
+}
+*/

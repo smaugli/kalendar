@@ -1,0 +1,199 @@
+<script type="text/javascript">
+            $(document).ready(function(){
+                var number = 2;
+                $("#type1").click(function(){
+                    $('.type1table').append('<tr  class="type2tr">  <td> <input type="hidden" name="experience['+number+'][type]" value="1" />  <table>  <tr>   <td>Description:</td><td> <textarea name="experience['+number+'][description]"></textarea> </td>  </tr>  <tr>  <td>Target audience *:</td><td><select name="experience['+number+'][target]"><option>1</option></select></td> </tr> <tr> <td>Content*:</td><td> <textarea name="experience['+number+'][content]"></textarea></td> </tr> <tr> <td>Why it was important experience</td><td> <textarea name="experience['+number+'][important]"></textarea></td>  </tr>  </table> </td>   </tr>');
+                    number++;
+                    return false;
+                });
+                
+                $("#type2").click(function(){
+                    $('.type2table').append('<tr  class="type2tr">  <td> <input type="hidden" name="experience['+number+'][type]" value="2" />  <table>  <tr>   <td>Description:</td><td> <textarea name="experience['+number+'][description]"></textarea> </td>  </tr>  <tr>  <td>Target audience *:</td><td><select name="experience['+number+'][target]"><option>1</option></select></td> </tr> <tr> <td>Content*:</td><td> <textarea name="experience['+number+'][content]"></textarea></td> </tr> <tr> <td>Why it was important experience</td><td> <textarea name="experience['+number+'][important]"></textarea></td>  </tr>  </table> </td>   </tr>');
+                    number++;
+                    return false;
+                });
+            });
+        </script>
+<h1>Teacher Registration (Account Page) </h1>
+<?php
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }
+
+
+?>
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Description: </label></td>
+            <td>
+                <textarea name="description"><?php echo $this->data['description']; ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Topics: </label></td>
+            <td>
+                <?php
+                if(count($this->topics) > 0){
+                    ?>
+                <ul>
+                <?php
+                    foreach($this->topics as $topic){
+ 
+                
+
+                ?>
+                    <li><?php echo $topic['name']; ?><input type="checkbox" <?php if($topic['checked']){echo "checked='checked'";}?> name="topics[<?php echo $topic['id']; ?>]" value="<?php echo $topic['id']; ?>" />
+                    <?php
+                    if(isset($topic['children']) && count($topic['children']) > 0){
+                        echo "<ul>";
+                        foreach($topic['children'] as $child){
+
+                    ?>
+                    <li><?php echo $child['name']; ?><input type="checkbox" <?php if($child['checked']){echo "checked='checked'";}?> name="topics[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                        <?php } echo "</ul>"; }?>
+                    </li>
+                <?php }
+                ?>
+                </ul>
+                <?php
+                } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Targets: </label></td>
+            <td>
+                <?php
+                if(count($this->targets) > 0){
+                    ?>
+                <ul>
+                <?php
+                    foreach($this->targets as $target){
+                ?>
+                    <li><?php echo $target['name']; ?><input type="checkbox" <?php if($target['checked']){echo "checked='checked'";}?> name="targets[<?php echo $target['id']; ?>]" value="<?php echo $target['id']; ?>" />
+                    <?php
+                    if(isset($target['children']) && count($target['children']) > 0){
+                        echo "<ul>";
+                        foreach($target['children'] as $child){
+
+                    ?>
+                    <li><?php echo $child['name']; ?><input type="checkbox" <?php if($child['checked']){echo "checked='checked'";}?> name="targets[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                        <?php } echo "</ul>"; }?>
+                    </li>
+
+                <?php }
+                ?>
+                </ul>
+                <?php
+                } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td><label>Languages: </label></td>
+            <td>
+                <?php
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+                ?>
+               <?php echo $language['name']; ?> <input type="checkbox" <?php if($language['checked']){echo "checked='checked'";}?> name="languages[<?php echo $language['id']; ?>]" value="<?php echo $language['id']; ?>" />
+                <?php } } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="#" id="type1">+</a></td>
+        </tr>
+        <tr >
+            <td  valign="top"><label>Teaching experience(s)<br /> in Estonia:(add one or more)  </label></td>
+            <td>
+                <table class="type1table">
+                    <tr   class="type1tr"><td>
+                        <input type="hidden" name="experience[0][type]" value="1" />
+                        <table>
+                            
+                            <tr>
+                                <td>Description:</td><td><textarea name="experience[0][description]"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>Target audience *:</td><td> <select name="experience[0][target]"><option>1</option></select></td>
+                            </tr>
+                            <tr>
+                                 <td>Content*:</td><td><textarea name="experience[0][content]"></textarea></td>
+                            </tr>
+                            <tr>
+                                 <td>Why it was important experience:</td><td><textarea name="experience[0][important]"></textarea></td>
+                            </tr>
+                        </table>
+</td></tr>
+                </table> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="#" id="type2">+</a></td>
+        </tr>
+        <tr>
+            <td valign="top"><label>Teaching experience(s)<br /> in Abroad :(add one or more)  </label></td>
+            <td>
+                 <table class="type2table">
+                     <tr  class="type2tr">
+                         <td>
+                             <input type="hidden" name="experience[1][type]" value="2" />
+                             <table>
+                                 <tr>
+                                     <td>Description:</td><td> <textarea name="experience[1][description]"></textarea> </td>
+                                 </tr>
+                                 <tr>
+                                     <td>Target audience *:</td><td><select name="experience[1][target]"><option>1</option></select></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Content*:</td><td> <textarea name="experience[1][content]"></textarea></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Why it was important experience</td><td> <textarea name="experience[1][important]"></textarea></td>
+                                 </tr>
+                             </table>
+                            
+                         </td>
+                     </tr>
+                 </table>
+            </td>
+        </tr>
+        <tr>
+            <td><label>What do you value about teaching? : </label></td>
+            <td>
+                <textarea name="aboutTeaching"><?php echo $this->data['aboutTeaching']; ?></textarea>
+            </td>
+        </tr>
+	<tr>
+            <td><label>Tell about yourself  </label></td>
+            <td>
+                <textarea name="about"><?php echo $this->data['about']; ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Professional trainings   </label></td>
+            <td>
+                <textarea name="professionalTrainings"><?php echo $this->data['professionalTrainings']; ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Main interests    </label></td>
+            <td>
+                <textarea name="interests"><?php echo $this->data['interests']; ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Interest in ESF    </label></td>
+            <td>
+                <textarea name="ESF"><?php echo $this->data['ESF']; ?></textarea>
+            </td>
+        </tr>   
+        <tr>
+            <td colspan="2"><input type="submit" value="save" />
+    <input type="reset" value="reset" /></td>
+        </tr>   
+</form>

@@ -1,0 +1,90 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" style="text-transform: capitalize">
+       
+        
+
+    <?php
+  
+?>
+<!--Contests-->
+	 <?php
+         if(count($this->contests) > 0){
+             foreach($this->contests as $contest){
+                    echo "<br />";
+                   echo "<a href='contest/".$contest['id']."'>".$contest['title']."</a>";
+                   echo " ".$contest['organiser'];
+                   
+             }
+         }
+
+echo "<h2>Minu koolitused</h2>";
+    if(count($this->assignedUsers) > 0){
+        foreach($this->assignedUsers as $eventId => $assignedUsers){
+            $title = $assignedUsers['title'];
+            unset($assignedUsers['title']);
+           
+            echo "<hr />";
+            echo $title;
+            echo "<hr />";
+            
+            if(count($assignedUsers) > 0){
+                echo "<table>
+                    <thead>
+                    <th>#</th>
+                        <th>Eesnimi</th>
+                        <th>Perekonnanimi</th>
+                        <th>Kinnitatud</th>
+                        <th>Email</th>
+                        <th>CSV</th>
+                     
+                    </thead>
+                    <tbody>
+";
+                foreach($assignedUsers as $userId => $user){                     
+                    echo "<tr>";
+                    echo  "<td><a href='info/".$userId."'>".$userId."</a></td>";
+                    echo "<td><a href='info/".$userId."'>".@$user['firstname']."</a></td>";
+                    echo "<td>".@$user['lastname']."</td>";
+                    echo "<td>".@$user['approved']."</td>";
+                    echo "<td>".@$user['email']."</td>";
+                    echo "<td><a href='export/index.php?user=".$userId."'>CSV</a></td>";
+                    echo "</tr>";
+                }
+                echo "</tbody></table>";
+            }
+        }
+    }
+else {
+	echo "Sul pole ühtegi administraatori poolt kinnitatud koolitust! <u><a href=\"http://mitteformaalne.ee/kalendar/profile/trainingadd\">Lisa koolitus</a></u>";
+}
+    ?>
+</td>
+</tr>
+</tbody></table>

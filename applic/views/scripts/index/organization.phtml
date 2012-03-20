@@ -1,0 +1,50 @@
+<h2>Registreeru organisatsioonina</h2>
+<?php
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        echo $error;
+        echo "<br />";
+    ?>
+<?php } }?>
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Kasutajanimi:* </label></td><td><input type="text" name="username" value="<?php echo @$this->data['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Parool:* </label></td><td><input type="password" name="password" value="<?php echo @$this->data['password'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Email:* </label></td><td><input type="text" name="email" value="<?php echo @$this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Organisatsiooni nimi:* </label></td><td><input type="text" name="name" value="<?php echo @$this->data['name'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Aadress: </label></td><td><input type="text" name="address" value="<?php echo @$this->data['address'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Telefon:* </label></td><td><input type="text" name="phone" value="<?php echo @$this->data['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Veebi aadress: </label></td><td><input type="text" name="website" value="<?php if(@$this->data['website'] !='') {echo @$this->data['website'];}else{echo 'http://';} ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Logo: </label></td><td> <input type="file" name="logo" /></td>
+        </tr>
+        <tr>
+            <td><label>Skype kasutajanimi: </label></td><td><input type="text" name="skype" value="<?php echo @$this->data['skype'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Twitter URL: </label></td><td><input type="text" name="twitter" value="<?php if(@$this->data['twitter'] !='') {echo @$this->data['twitter'];}else{echo 'http://';} ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>LinkedIn URL: </label></td><td><input type="text" name="linkedIn" value="<?php if(@$this->data['linkedIn'] !='') {echo @$this->data['linkedIn'];}else{echo 'http://';} ?>" /></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><input type="submit" value="Registreeru" />
+</td>
+        </tr>
+    </table>
+</form>

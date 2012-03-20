@@ -1,0 +1,6 @@
+<srong>Logi sisse!</stong>
+<form action="" method="post">
+    Kasutajanimi: <input type="text" name="username" /><br />
+    Parool: <input type="password" name="password" /><br />
+    <input type="submit" value="Sisenen">
+</form>

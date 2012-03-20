@@ -1,0 +1,39 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"><?php echo "Tere, "; ?>! <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" style="text-transform: capitalize">
+        <h2><?php echo $this->title; ?></h2>
+       <form action="" method="post">
+            <input type="hidden" name="id" value="<?php echo $this->item['id']?>" />
+            <input type="text" name="name" value="<?php echo $this->item['name']?>"  />
+            <input type="submit" value="add" />
+    </form>
+</td>
+</tr>
+</tbody></table>

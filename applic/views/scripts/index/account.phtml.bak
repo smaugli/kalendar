@@ -1,0 +1,194 @@
+<script type="text/javascript">
+            $(document).ready(function(){
+                var number = 2;
+                $("#type1").click(function(){
+                    $('.type1table').append('<tr  class="type2tr">  <td> <input type="hidden" name="experience['+number+'][type]" value="1" />  <table>  <tr>   <td>Põhiandmed:*<br /><small>(millal, kus, pealkiri/teema)</small></td><td> <textarea name="experience['+number+'][description]"></textarea> </td>  </tr>  <tr>  <td>Sihtgrupp:*</td><td><select name="experience['+number+'][target]"><option>1</option></select></td> </tr> <tr> <td>Sisu:*</td><td> <textarea name="experience['+number+'][content]"></textarea></td> </tr> <tr> <td>Miks on oluline kogemus?*</td><td> <textarea name="experience['+number+'][important]"></textarea></td>  </tr>  </table> </td>   </tr>');
+                    number++;
+                    return false;
+                });
+                
+                $("#type2").click(function(){
+                    $('.type2table').append('<tr  class="type2tr">  <td> <input type="hidden" name="experience['+number+'][type]" value="2" />  <table>  <tr>   <td>Põhiandmed:*<br /><small>(millal, kus, pealkiri/teema)</small></td><td> <textarea name="experience['+number+'][description]"></textarea> </td>  </tr>  <tr>  <td>Sihtgrupp:*</td><td><select name="experience['+number+'][target]"><option>1</option></select></td> </tr> <tr> <td>Sisu:*</td><td> <textarea name="experience['+number+'][content]"></textarea></td> </tr> <tr> <td>Miks on oluline kogemus?*</td><td> <textarea name="experience['+number+'][important]"></textarea></td>  </tr>  </table> </td>   </tr>');
+                    number++;
+                    return false;
+                });
+            });
+        </script>
+<strong>Koolitaja profiil</strong><br />
+<?php
+echo "<font color='blue'><strong>Oled koolitajana edukalt registreerunud ning oled nüüd sisse logitud. Järgmise sammuna, plaume Sul täita ära oma profiil ning klikata allpool nuppu \"Salvesta\"</strong></font>";
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Palun sisesta enda lühitutvustus:* </label></td>
+            <td>
+                <textarea name="description"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Palun, vali teemad, mida koolitajana valdad:*<br /><small>(Palun, vali oma kogemuste hulka ainult neid teemasid, milles omad põhjalikku koolituskogemust)</small></label></td>
+            <td>
+                <?php
+                if(count($this->topics) > 0){
+                    ?>
+                <ul>
+                <?php
+                    foreach($this->topics as $topic){
+                ?>
+                    <li><?php echo $topic['name']; ?><input type="checkbox" name="topics[<?php echo $topic['id']; ?>]" value="<?php echo $topic['id']; ?>" />
+                    <?php
+                    if(isset($topic['children']) && count($topic['children']) > 0){
+                        echo "<ul>";
+                        foreach($topic['children'] as $child){
+                    
+                    ?>
+                    <li><?php echo $child['name']; ?><input type="checkbox" name="topics[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                        <?php } echo "</ul>"; }?>
+                    </li>
+                <?php }
+                ?>
+                </ul>
+                <?php
+                } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Sihtgrupid:* </label></td>
+            <td>
+                <?php
+                if(count($this->targets) > 0){
+                    ?>
+                <ul>
+                <?php
+                    foreach($this->targets as $target){
+                ?>
+                    <li><?php echo $target['name']; ?><input type="checkbox" name="targets[<?php echo $target['id']; ?>]" value="<?php echo $target['id']; ?>" />
+                    <?php
+                    if(isset($target['children']) && count($target['children']) > 0){
+                        echo "<ul>";
+                        foreach($target['children'] as $child){
+
+                    ?>
+                    <li><?php echo $child['name']; ?><input type="checkbox" name="targets[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                        <?php } echo "</ul>"; }?>
+                    </li>
+
+                <?php }
+                ?>
+                </ul>
+                <?php
+                } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td><label>Töökeeled:*<br /><small>Palun märgi oma töökeeled, milles koolitusi läbi viid</small></label></td>
+            <td>
+                <?php
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+                ?>
+               <?php echo $language['name']; ?> <input type="checkbox" name="languages[<?php echo $language['id']; ?>]" value="<?php echo $language['id']; ?>" />
+                <?php } } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="#" id="type1">+</a></td>
+        </tr>
+        <tr >
+            <td  valign="top"><label>Olulisemad senised koolitamiskogemused Eestis:</label></td>
+            <td>
+                <table class="type1table">
+                    <tr   class="type1tr"><td>
+                        <input type="hidden" name="experience[0][type]" value="1" />
+                        <table>
+                            
+                            <tr>
+                                <td>Põhiandmed:*<br /><small>(millal, kus, pealkiri/teema)</td><td><textarea name="experience[0][description]"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>Sihtgrupp:*</td><td> <select name="experience[0][target]"><option>1</option></select></td>
+                            </tr>
+                            <tr>
+                                 <td>Sisu:*</td><td><textarea name="experience[0][content]"></textarea></td>
+                            </tr>
+                            <tr>
+                                 <td>Miks on oluline kogemus?*</td><td><textarea name="experience[0][important]"></textarea></td>
+                            </tr>
+                        </table>
+</td></tr>
+                </table> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="#" id="type2">+</a></td>
+        </tr>
+        <tr>
+            <td valign="top"><label>Teaching experience(s)<br /> in Abroad :(add one or more)  </label></td>
+            <td>
+                 <table class="type2table">
+                     <tr  class="type2tr">
+                         <td>
+                             <input type="hidden" name="experience[1][type]" value="2" />
+                             <table>
+                                 <tr>
+                                     <td>Põhiandmed:*<br /><small>(millal, kus, pealkiri/teema)</td><td> <textarea name="experience[1][description]"></textarea> </td>
+                                 </tr>
+                                 <tr>
+                                     <td>Sihtgrupp:*</td><td><select name="experience[1][target]"><option>1</option></select></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Sisu:*</td><td> <textarea name="experience[1][content]"></textarea></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Miks on oluline kogemus?*</td><td> <textarea name="experience[1][important]"></textarea></td>
+                                 </tr>
+                             </table>
+                            
+                         </td>
+                     </tr>
+                 </table>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Mida väärtustad koolitustegevuse juures?</label></td>
+            <td>
+                <textarea name="aboutTeaching"></textarea>
+            </td>
+        </tr>
+	<tr>
+            <td><label>Kuidas iseloomustad end koolitajana?</label></td>
+            <td>
+                <textarea name="about"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Olulisim professionaalne ettevalmistus koolitajaks</label></td>
+            <td>
+                <textarea name="professionalTrainings"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Millistel teemadel, sihtgruppide lõikes jne oled huvitatud enesetäiendusest?</label></td>
+            <td>
+                <textarea name="interests"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Huvi ESF raames tegutsemiseks</label></td>
+            <td>
+                <textarea name="ESF"></textarea>
+            </td>
+        </tr>   
+        <tr>
+            <td colspan="2"><input type="submit" value="Salvesta" />
+</td>
+        </tr>   
+</form>

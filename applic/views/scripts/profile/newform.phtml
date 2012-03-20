@@ -1,0 +1,75 @@
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.typeChanger').click(function(){
+            if($(this).attr('value') == 1){
+                $('.openRow').hide();
+            }else{
+                $('.openRow').show();
+            }
+        });
+    });
+</script>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<a href="profile/forms">back</a>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+<tr>
+    <td valign="top" style="width:15%">
+       <?php echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId
+         )); ?>
+</td>
+<td valign="top" colspan="3">
+<form action="" method="post" enctype="multipart/form-data">
+<h2>Loo uus registreerumisvorm</h2>
+    <table>
+        <tr>
+            <td><label>Vormi nimi:* </label></td><td><input type="text" name="name" /></td>
+        </tr>
+        <!--<tr>
+            <td>
+                <label>Lisa standküsimustik:  </label>
+            </td>
+            <td>
+                <input type="checkbox" name="adddefault" value="1" /> <small>(alati on võimalus standardküsimustikku oma vajadustele kohendada)</small>
+            </td>
+            
+        </tr>-->
+        <tr>
+            <td>
+                Mille vorm?
+            </td>
+            <td>
+               Koolitusele registreerumiseks: <input type="radio" checked name="type" class="typeChanger" value="0" /><br />
+               Koolitaja konkursil registreerumiseks: <input type="radio" name="type" class="typeChanger"  value="1" />
+            </td>
+        </tr>
+        <tr class="openRow">
+            <td>
+                <label>Vormi liik:  </label>
+            </td>
+            <td>
+                Vaba registreerimine: <input type="radio" name="open" checked  value="1" /><br />
+               Registreerunute seast tehakse valik: <input type="radio" name="open" value="0" />
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="submit" value="Loo vorm"><br /><small>(Järgmisel lehel saab vormile<br />välju lisada, neid muuta ja kustutada)</small></td>
+        </tr>
+    </table>
+</form>
+</td>
+</tr>
+</tbody></table>

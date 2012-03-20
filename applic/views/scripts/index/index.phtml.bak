@@ -1,0 +1,171 @@
+<!--<a href="index/register">Register Teacher</a><br />
+<a href="index/organization">Register Organization</a><br />
+<a href="index/login">Login</a><br /><br />-->
+           <div style="text-align:right;"><form action="" method="post">
+    Otsi koolitust kogu kalendrist:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/><input type="text" name="search" /><input type="submit" name="submit" value="Otsi">
+            </form></div>
+
+<div style="font-size: 15px; font-weight: bold; text-decoration: underline">
+<a href="calendar/<?php echo $this->beforeUrl ?>"> < </a>
+<?php
+echo $this->date;
+?>
+<a href="calendar/<?php echo $this->afterUrl ?>"> > </a>
+</div>
+<table <table  cellspacing="0" cellpadding="0" class="eventCalendar">
+	<thead>
+		<tr>
+			<th>E</th><th>T</th><th>K</th>
+			<th>N</th><th>R</th><th>L</th>
+			<th>P</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+
+        <?php
+
+
+        $dayofweek = $this->dayofweek+1;
+
+        $first = true;
+
+
+        for($i=1;$i < $this->numdays+1; $i++){
+        ?>
+        <?php
+        if($dayofweek == 0 || $dayofweek == 7){$first = false;}
+        if($first){echo "<td colspan='$dayofweek'></td>";$first = false; }?>
+        <td ><?php echo $i ?>
+        <?php
+//        date
+        $dayEvents = array();
+        $counter = $i;
+        if($counter < 10){
+            $counter = '0'.$counter;
+        }
+        if(isset($this->calendarItems[$this->date.'-'.$counter])){
+
+            $dayEvents = $this->calendarItems[$this->date.'-'.$counter];
+
+        }
+
+        if(count($dayEvents) > 0){
+//            var_dump($dayEvents);exit;
+            foreach($dayEvents as $dayEvent){
+
+        ?>
+            <br />
+
+            <a href="event/<?php echo $dayEvent['id']?>" class="type<?php echo $dayEvent['type']?>"><?php echo $dayEvent['title']?> <span style="color:#fff"> <?php echo date('Y.m.d',strtotime($dayEvent['deadline']));?></span></a>
+            <?php } } ?>
+        </td>
+        <?php
+
+        if($dayofweek%7 == 6){
+        ?>
+        </tr><tr>
+        <?php }
+        $dayofweek++;
+        ?>
+        <?php }?>
+    </tr>
+
+</table><br/>
+<table width="300px" style="float:left; margin-right:10px">
+    <tr><td>
+      <?php
+    if(count($this->event) > 0){
+        ?>
+        <table cellpadding="0" cellspacing="0">
+        <?php
+        foreach($this->event as $item){
+            ?>
+            <tr>
+                <a href="event/<?php echo $item['id']?>" class="type<?php echo $item['type']?>"><?php echo $item['title']?> <span style="color:#fff"> <?php echo date('Y.m.d',strtotime($item['deadline']));?></span></a><br/><br/>
+
+
+            </tr>
+
+        <?php
+        }
+        ?>
+        </table>
+        <?php
+    }
+    ?>
+
+ </td></tr>
+    </tr>
+</table>
+    <table width="300px"style="float:left; margin-right:10px">
+    <tr><td>
+           <form action="" method="post">
+   Otsi koolitajat:<br/><input type="text" name="search" />
+
+    <input type="submit" name="submit" value="Otsi">
+            </form>
+
+        </td></tr>
+    <tr><td>
+      <?php
+    if(count($this->trainer) > 0){
+        ?>
+        <table cellpadding="0" cellspacing="0">
+        <?php
+        foreach($this->trainer as $item){
+            ?>
+            <tr>
+                <td> <a href="user/<?php echo $item['username']; ?>"><?php echo $item['name']?></a></td>
+                <td> <a href="user/<?php echo $item['username']; ?>"><img src="img/trainers/<?php echo $item['photo']?>" style="width:100px;" alt="" /></a></td>
+            </tr>
+
+        <?php
+        }
+        ?>
+        </table>
+        <?php
+    }
+    ?>
+
+ </td></tr>
+    </tr>
+</table>
+    <table width="300px" style="float:left; margin-right:10px">
+    <tr><td>
+           <form action="" method="post">
+    Otsi organisatsiooni:<br/><input type="text" name="search" />
+
+    <input type="submit" name="submit" value="Otsi">
+            </form>
+
+        </td></tr>
+    <tr><td>
+      <?php
+      if($this->organisation != ''){
+    if(count($this->organisation) > 0){
+        ?>
+        <table cellpadding="0" cellspacing="0">
+        <?php
+        foreach($this->organisation as $item){
+            ?>
+            <tr>
+                <tr>
+                <td> <a href="user/<?php echo $item['username']; ?>"><?php echo $item['name']?></a></td>
+                <td> <a href="user/<?php echo $item['username']; ?>"><img src="img/organizations/<?php echo $item['logo']?>" style="width:100px;" alt="" /></a></td>
+            </tr>
+            </tr>
+
+        <?php
+        }
+        ?>
+        </table>
+        <?php
+    }
+    else{echo "our request nothing has been found";}
+    }
+    ?>
+
+ </td></tr>
+    </tr>
+</table>

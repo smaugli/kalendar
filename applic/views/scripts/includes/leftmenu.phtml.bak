@@ -1,0 +1,49 @@
+
+<?php
+if($this->typeId == 1){
+    if($this->level == 1){
+?>
+<b><a href="profile/trainingedit">Koolitused</a></b><br>
+<b><a href="profile/contests">Koolitaja konkursid</a></b><br>
+<b><a href="profile/editteacher">Minu profiil</a></b><br>
+<b><a href="profile/editaccount/">Minu konto</a></b><br>
+<b><a href="profile/forms">Registreerumisvormid</a></b>
+<?php
+}elseif($this->level == 0){
+?>
+<b><a href="profile/trainingedit">Koolitused</a></b><br>
+<b><a href="profile/editteacher">Minu profiil</a></b><br>
+<b><a href="profile/editaccount/">Minu konto</a></b><br>
+<b><a href="profile/forms">Registreerumisvormid</a></b>
+<?php
+}}elseif($this->typeId == 2){
+    if($this->level == 1){
+
+?>
+<b><a href="profile/trainingedit">Koolitused</a></b><br>
+<b><a href="profile/contests">Koolitaja konkursid</a></b><br>
+<b><a href="profile/editteacher">Organisatsiooni profiil</a></b><br>
+<b><a href="profile/forms">Registreerumisvormid</a></b><br>
+<b><a href="profile/trainersorg">Koolitajad</a></b><br>
+<?php
+}elseif($this->level == 0){?>
+<b><a href="profile/trainingedit">Koolitused</a></b><br>
+<b><a href="profile/editteacher">Organisatsiooni profiil</a></b><br>
+<b><a href="profile/forms">Registreerumisvormid</a></b>
+
+
+<?php }}elseif($this->typeId == 3){ ?>
+<b><a href="admin/events">Koolitused</a></b><br>
+<b><a href="admin/trainers">Koolitajad</a></b><br>
+<b><a href="admin/organisations">Organisatsioonid</a></b><br>
+<b><a href="admin/contests">Koolitaja konkursid</a></b><br>
+<hr />
+<b><a href="admin/sectors">Sektorid</a></b><br>
+<b><a href="admin/languages">Töökeeled</a></b><br>
+<b><a href="admin/counties">Maakonnad</a></b><br>
+<b><a href="admin/targets">Sihtgrupid</a></b><br>
+<b><a href="admin/topics">Teemad</a></b><br>
+<b><a href="admin/teachingmaterials">Koolitusmaterialid</a></b>
+<b><a href="admin/types">Koolituse vormid</a></b>
+
+<?php } ?>

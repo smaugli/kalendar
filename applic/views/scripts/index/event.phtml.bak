@@ -1,0 +1,138 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.openform').toggle(function(){
+            $('.emailForm').fadeIn(500);
+            return false;
+        },
+            function(){
+                $('.emailForm').fadeOut(500);
+                return false;
+            }
+    );
+    });
+</script>
+
+<table bordercolor="#def5fe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody>
+<tr>
+<td valign="top" colspan="2">
+<h2><?php
+    echo $this->event['title'];
+    ?></h2>
+    <p style="margin-top:-20px;">Koolituse autor:&nbsp&nbsp<a href="user/<?php echo $this->event['username']; ?>"><?php echo $this->event['username']; ?></a></p>
+    <p style="color:#FFA500;">Description</p>
+    <?php
+    echo $this->event['description'];
+    ?>
+    <p style="color:#FFA500;">Keywords</p>
+    <p><?php
+    echo $this->event['keywords'];
+    ?></p>
+    <p style="color:#FFA500;">Type</p>
+     <p><?php
+    echo $this->event['type'];
+    ?></p>
+     <p style="color:#FFA500;">Date</p>
+      <p><?php
+    foreach ($this->data1 as $value) {?>
+        <?php echo @$value['date'] ?>&nbsp;
+        <?php echo @$value['location'] ?>
+<br/>
+        <?php }
+    ?></p>
+      <p style="color:#FFA500;">Price</p>
+       <p><?php
+    echo $this->event['price'];
+    ?></p>
+       <p style="color:#FFA500;">deadline</p>
+       <p><?php
+    echo $this->event['deadline'];
+    ?></p>
+       <p style="color:#FFA500;">languages</p>
+       <p><?php
+       if($this->event['languages'] === 1){
+    echo "English";}elseif($this->event['languages'] === 2){
+        echo "Russian";
+    }elseif($this->event['languages'] === '1,2'){
+         echo "English & Russian";
+    }
+    ?></p>
+       <p style="color:#FFA500;">Sector</p>
+       <p><?php
+    echo $this->event['sector'];
+    ?></p>
+          <p style="color:#FFA500;">Trainer’s URL</p>
+       <p><?php
+    echo $this->event['tUrl'];
+    ?></p>
+         <p style="color:#FFA500;">Group size</p>
+       <p><?php
+    echo $this->event['size'];
+    ?></p>
+       <p style="color:#FFA500;">Coverage</p>
+       <p><?php
+    echo $this->event['coverage'];
+    ?></p>
+       <p style="color:#FFA500;">Contact info</p>
+       <p><?php
+    echo $this->event['contacts'];
+    ?></p>
+       <p style="color:#FFA500;">Logo</p>
+  <img src="img/events/<?php echo @$this->event['logo']?>" style="width:200px;"  alt="" />
+</td>
+
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td width="650" valign="middle" class="top" colspan="2">&nbsp;<b>Taotlemine / registreerimine</b></td>
+</tr>
+<tr>
+<td valign="middle">&nbsp;Osalejate kinnitamise kuupäev</td>
+<td valign="middle">&nbsp;<?php
+    echo date("Y-m-d",strtotime($this->event['deadline']));
+    ?></td>
+</tr>
+<tr>
+    <td colspan="2">
+        <table cellpadding="2" cellspacing="2" align="center">
+            <td><a href="#" class="openform">Email A friend</a>
+                <form action="#" style="display: none; position: absolute; background: #fff" class="emailForm" method="post">
+                <table>
+                    <tbody><tr>
+                        <td width="150">Nimi</td>
+                        <td width="300"><input type="text" name="saatja_nimi"></td>
+                        </tr>
+                        <tr>
+                        <td width="150">Sisu</td>
+                        <td width="300"><textarea name="sisu" rows="3" cols="25"></textarea></td>
+                        </tr><tr>
+                        <td width="150">E-Post</td>
+                        <td width="300"><input type="text" name="saatja_email"></td>
+                        </tr>
+                        <tr>
+                        <td colspan="2" class="top"><center><input type="submit" value="Saada" name="kysi_saada"></center></td>
+                        </tr>
+                        </tbody>
+                </table>
+            </form>
+            </td>
+            <td>|</td>
+            <td><a href="assign/<?php
+         
+            echo $this->event['id'];  ?>" >Assign Form</a></td>
+        </table>
+    </td>
+</tr>
+<tr>
+<td valign="middle">&nbsp;Kontakt lisainfo saamiseks</td>
+<td valign="middle">&nbsp; <?php
+
+
+
+    echo $this->event['contacts'];
+    ?>
+</td>
+</tr>
+</tbody></table>

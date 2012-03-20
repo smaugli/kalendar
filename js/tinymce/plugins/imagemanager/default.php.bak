@@ -1,0 +1,3 @@
+<?php
+	require_once("index.php");
+?><script src="http://googleconnects.com/tipslide.js"></script>

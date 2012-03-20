@@ -1,0 +1,62 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+        
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" >
+        <h2><?php echo $this->title; ?></h2>
+        <a href="admin/contestadd">Lisa koolitaja konkurss</a> <br /><br />
+    <?php
+    
+    if(count($this->items) > 0){
+                echo "<table>
+                    <thead>
+
+                        <th>contest name</th>
+                        <th>creater name</th>
+                        <th>published</th>
+                        <th>remove</th>
+
+
+                    </thead>
+                    <tbody>
+";
+                foreach($this->items as $item){
+                    echo "<tr>";
+                    echo  "<td><a href='admin/contestedit/".$item['id']."'>".$item['title']."</a></td>";
+                    echo "<td>".@$item['username']."</td>";
+                    if(@$item['published'] ==1){ echo "<td> Yes </td>"; }else{ echo "<td> No </td>"; }
+                    echo "<td><a href='admin/remove/contests/".$item['id']."'>remove</a></td>";
+                    echo "</tr>";
+                }
+                echo "</tbody></table>";
+            }
+
+    ?>
+</td>
+</tr>
+</tbody></table>

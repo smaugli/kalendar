@@ -1,0 +1,61 @@
+<strong>Contest a seat as a trainer  </h1>
+
+<a href="profile">back</a>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%" colspan="4">
+        <table cellpadding="0" cellspacing="0" border="1">
+            <?php
+            
+            if(count($this->info) > 0){
+                
+                foreach($this->info as $key =>  $field){
+                    if(is_array($field)){
+                        echo "<tr>";
+                        echo "<td>".$key."</td>";
+                        echo "<td>";
+                        if(count($field) > 0){
+                            echo "<table>";
+                            foreach($field as $option){
+                              
+                                if($option['value'] != NUll){
+                                    echo "<tr>";
+                                    echo "<td>".$option['options']."</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                            echo "</table>";
+                        }
+echo "</td>";
+                        echo "</tr>";
+                    }else{
+                        echo "<tr>";
+                        echo "<td>".$key."</td>";
+                        echo "<td>".$field."</td>";
+                        echo "</tr>";
+                    }
+                    
+                    
+                }
+            }
+//            header("Content-type: application/vnd.ms-excel");
+            ?>
+
+        </table>
+    </td>
+</tr>
+</tbody>

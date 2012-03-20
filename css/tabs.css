@@ -1,0 +1,54 @@
+
+/* root element for accordion. decorated with rounded borders and gradient background image */
+.accordion {
+
+}
+
+/* accordion header */
+.accordion h3 {
+	background: url(../images/tab.png) top left no-repeat;
+	margin:0;
+	padding:10px 0 16px 46px;
+	font-size:14px;
+	font-weight:normal;
+	cursor:pointer;		
+	color:#AEAEAE;
+}
+
+.accordion h3:hover {
+	color: #8C8C8C;
+}
+
+/* currently active header */
+.accordion h3.current {
+	background: url(../images/tabc.png) top left no-repeat;
+	cursor:default;
+	padding:16px 0 32px 46px;
+	color: #fff;
+}
+
+.accordion h3.current:hover {
+	color: #fff;
+}
+
+/* accordion pane */
+.accordion div.pane {
+	border:1px solid #fff;
+	border-width:0 2px;
+	display:none;
+	padding:25px 15px 35px 15px;
+	font-size:12px;
+}
+
+/* a title inside pane */
+.accordion div.pane h3 {
+	background: url(../images/tab.png) top left no-repeat;
+	font-weight:normal;
+	margin:0 0 -5px 0;
+	font-size:16px;
+	color:#AEAEAE;
+}
+
+.accordion pane p {
+	display: block;
+}

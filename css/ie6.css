@@ -1,0 +1,694 @@
+html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+
+/*****************************notification***************************************/
+
+#noie{
+	width: 100%;
+	background-color:#333;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -74px;
+}	
+	
+	
+/*****************************notification***************************************/
+
+
+
+#menu ul.sf-shadow ul {
+	background:	none;
+}
+
+.submit input, .nextsubmit, .complete, .block-faceted_search_ui input.form-submit  {
+	font-size:0px;
+	display: block;
+	line-height: 0px;
+}
+
+#nodecontent {
+	background: url(../images/content_bg.jpg) top center no-repeat;
+	margin: auto;
+	padding: 18px 37px 0 17px;
+	position: relative;
+}
+
+#logo{
+	background: url(../images/ie/bofango.png) top left no-repeat;
+}
+
+#infomenu a.supplier{
+	background: url(../images/ie/becomesupplier.png) top left no-repeat;
+}
+
+#infomenu a.supplier:hover{
+	background: url(../images/ie/becomesupplier.png) left -27px no-repeat;
+}
+
+
+#menu ul.menu li a span.men_budget {
+	background: url(../images/ie/toptabs.png) right -85px no-repeat;
+}
+
+#menu ul.menu li a span.men_destination {
+	background: url(../images/ie/toptabs.png) right -170px no-repeat;
+}
+
+#menu ul.menu li a span.men_month {
+	background: url(../images/ie/toptabs.png) right -254px no-repeat;
+}
+
+
+
+#menu ul.menu li a:hover, #menu ul.menu li.sfHover a, #menu ul.menu li.active-trail a {
+	background: url(../images/ie/toptabs.png) 0px 0px no-repeat;
+}
+
+#menu ul.menu li a:hover span.men_budget, #menu ul.menu li.sfHover a span.men_budget, #menu ul.menu li.active-trail a span.men_budget {
+	background: url(../images/ie/toptabs.png) right -128px  no-repeat;
+}
+
+#menu ul.menu li a:hover span.men_destination, #menu ul.menu li.sfHover a span.men_destination, #menu ul.menu li.active-trail a span.men_destination {
+	background: url(../images/ie/toptabs.png) right -212px  no-repeat;
+}
+
+#menu ul.menu li a:hover span.men_month, #menu ul.menu li.sfHover a span.men_month, #menu ul.menu li.active-trail a span.men_month {
+	background: url(../images/ie/toptabs.png) right -297px  no-repeat;
+}
+
+
+#menu ul.menu li ul.menu li a span{
+	background: url(../images/ie/toptabsdrop.gif) 0px -20px no-repeat;
+}
+
+
+
+#menu ul.menu li ul.menu li.last a{
+	background: url(../images/ie/toptabsdrop.gif) 0px bottom no-repeat;
+}
+
+#menu ul.menu li ul.menu li.last a span{
+	background: none;
+}
+
+#menu ul.menu li ul.menu li.last a:hover span{
+	background: url(../images/ie/toptabsdrop.gif) 0px -60px no-repeat;
+}
+
+
+#menu ul.menu li ul.menu li.fake-leaf a span{
+	background: url(../images/ie/toptabsdrop.gif) left top no-repeat;
+}
+
+
+#footer {
+	background: url(../images/ie/footer.png) bottom center no-repeat;
+}
+
+#specials .picframe {
+	display: none;
+}
+
+#specials .spright{
+	margin: 14px 0 0 0;
+	width: 470px;
+}
+
+
+#specialsr ul li {
+	display: block;
+	height: 80px;
+	padding: 10px 0 9px 0;
+	position: relative;
+}
+
+#specialsr ul li.sno1 {
+	display: block;
+	height: 80px;
+	padding: 15px 0 9px 0;
+}
+
+#specialsr ul li.sno3 {
+	display: block;
+	height: 80px;
+	padding: 7px 0 0 0;
+}
+
+#specialsr ul li .picframe {
+	background-image: none;
+}
+
+
+#specialsr ul li.sno1 .picframe{
+	background-image: none;
+}
+
+#specialsr ul li.sno3 .picframe{
+	background-image: none;
+}
+
+#news {
+	width: 45%;
+	float: right;
+	margin: 0;
+	padding: 16px 50px 0 0;
+	position: relative;
+}
+
+#news ul li .picframe {
+	background-image: none;
+}
+
+#news .link {
+	right: 50px;
+}
+
+#news ul li.no1{
+	padding-top:6px;
+}
+
+#news ul li {
+	padding: 12px 0 10px 0;
+}
+
+
+#news ul li.no3 {
+	background: none;
+}
+
+
+#slider .frame {
+	background: url(../images/ie/picture.png) top left no-repeat;
+}
+
+#searchbox input.form-text { 
+	background: url(../images/search.png) 10px 4px no-repeat #F7F7F7;
+	border: none;
+	width: 160px;
+	float: left;
+	margin: 0;
+	padding: 3px 10px 3px 10px;
+}
+
+#searchbox input.form-text:focus {
+	background-image: none;
+	background-color: #F3CD14;
+	border-color: #F3CD14;
+}
+
+#searchbox #edit-1-wrapper {
+	padding: 10px 0 0 0;
+}
+
+#searchbox #autocomplete {
+	background: url(../images/ie/autocomeplete_top.png) top left no-repeat #322E2E;
+}
+
+#autocomplete .camp a.pborder{
+	background-image: none;
+}
+
+.trateback {
+	background: url(../images/ie/teaserrating.png) 0px -8px no-repeat;
+}
+
+.tratebar {
+	background: url(../images/ie/teaserrating.png) 0px -29px no-repeat;	
+}
+
+.block-faceted_search_ui{
+	position: relative;
+}
+
+.block-faceted_search_ui input.form-text{
+	border: 0;
+	background: transparent;
+	width: 140px;
+	float: left;
+	margin: 0;
+	height: 16px;
+}
+
+.block-faceted_search_ui input.form-submit {
+	background: url(../images/search_submit.png) top left no-repeat;
+	width: 17px;
+	height: 17px;
+	text-indent: -99999px;
+	border: none;
+	cursor: pointer;
+	margin: 4px 0 4px 6px;
+	position: absolute;
+	right:12px;
+	top:1px;
+}
+
+.ex_shadow{
+	display: none;
+}
+
+.block-faceted_search_ui form{
+	background: url(../images/ie/facetsearch.png) top left no-repeat;
+	height: 40px;
+}
+
+
+#taxcontent .camp a.pborder{
+	background: url(../images/ie/campthumbpic.png) top left no-repeat;
+}
+
+.camptabs li.ui-state-active a p {
+	display: none;
+}
+
+.r .picframe {
+	background-image: none;
+}
+
+.minithumb a {
+	background-image: none;
+}
+
+#tagtabs dd a.assigned, #loctabs dd a.assigned, #rightcol a.assigned {
+	background: url(../images/ie/tagicons.png) -2px 1px no-repeat;
+}
+
+#tagtabs dd a.unassigned, #loctabs dd a.unassigned, #rightcol a.unassigned{
+	background: url(../images/ie/tagicons.png) -2px -36px no-repeat;
+}
+
+#tagtabs dd a.unassigned:hover, #loctabs dd a.unassigned:hover, #rightcol a.unassigned:hover {
+	background: url(../images/ie/tagicons.png) -2px -55px no-repeat;
+}
+
+
+#tagtabs dd a.assigned:hover, #loctabs dd a.assigned:hover, #rightcol a.assigned:hover {
+	background: url(../images/ie/tagicons.png) -2px -18px no-repeat;
+}
+
+#tester .nottested {
+	background: url(../images/ie/nottested.png) top left no-repeat;
+}
+
+#tester .testnow {
+	background: url(../images/ie/testnow.png) top left no-repeat;
+}
+
+#tester .testnow:hover{
+	background: url(../images/ie/testnow.png) left -114px no-repeat;
+}
+
+
+#tester .tested {
+	background: url(../images/ie/tested.png) top left no-repeat;
+}
+
+.leftcol {
+	background: url(../images/ie/leftcol.jpg) top left no-repeat;
+	height: 600px;
+}
+
+.leftcol .info {
+	height: 140px;
+}
+
+.shortreview {
+	height: 300px;
+}
+
+.nbar{
+	height: 8px;
+}
+
+#tagtabs ul li, #loctabs ul li {
+	background: url(../images/ie/tagtabs.png) top right no-repeat;
+}
+
+#tagtabs ul li.first a, #loctabs ul li.first a {
+	background: url(../images/ie/tagtabs.png) 0px -69px no-repeat;
+}
+
+#tagtabs ul li.last, #loctabs ul li.last {
+	background: url(../images/ie/tagtabs.png) right -127px no-repeat;
+}
+
+#tagtabs ul li.ui-tabs-selected, #loctabs ul li.ui-tabs-selected {
+	background: url(../images/ie/tagtabs.png) right -214px no-repeat;
+	padding-bottom: 0;
+}
+
+#tagtabs ul li.ui-tabs-selected a, #loctabs ul li.ui-tabs-selected a{
+	background: url(../images/ie/tagtabs.png) 0px -293px no-repeat;
+}
+
+#tagtabs .dlcon, #loctabs .dlcon {
+	background: url(../images/ie/tabsbottom.png) bottom left no-repeat;
+}
+
+#tagtabs, #loctabs {
+	background: url(../images/ie/tabstop.png) 0px 30px no-repeat;
+}
+
+#tagtabs ul li.ui-tabs-selected span, #loctabs ul li.ui-tabs-selected span{
+	display: none;
+}
+
+.bookform {
+	margin: 0;
+	padding: 20px 0 0 20px;
+}
+
+#stp1{
+	height: 180px;
+}
+
+fieldset.booking {
+	width: 400px;
+}
+
+.wizard li.here{
+	background-color:#ffffff;
+	background-image: none;
+	width: 100px;
+}
+
+.wizard li.here a{
+	background-image:none;
+}
+
+div.star-rating,div.star-rating a{
+	background:url(../images/ie/persons.png) 0px 0px  no-repeat;
+}
+
+#rooms .bedshead {
+	background: url(../images/ie/pricesbg.png) 0px 0px no-repeat;
+}
+
+#rooms .ev .bedshead {
+	background: url(../images/ie/pricesbg.png) 0px -119px no-repeat;
+}
+
+
+div#zero {
+	background:url(../images/ie/personsdelete.png) no-repeat 0px 0px;
+}
+	
+div#zero a{
+	background:url(../images/ie/personsdelete.png) no-repeat 0px 0px;
+}
+
+div#zero a:hover{
+	background:url(../images/ie/personsdelete.png) no-repeat 0px -17px;
+}
+
+
+.addressblock{
+	background-color: #F6F6F6;
+	height: 500px;
+}
+
+.addressblock fieldset.person .firstname{
+	width: 110px;
+	padding: 0;
+	float: left;
+}
+
+.addressblock fieldset.person .lastname{
+	width: 128px;
+	padding: 0;
+	float: left;
+}
+
+.addressblock fieldset.address .address1 input {
+	width: 350px;
+	margin: 0;
+}
+
+.addressblock fieldset.address .address1{
+	width: 350px;
+	padding: 0;
+	float: left;
+}
+
+.addressblock fieldset.address .address1 input {
+	width: 350px;
+	margin: 0;
+}
+
+.addressblock fieldset.address .address2{
+	width: 350px;
+	padding: 5px 0 0 81px;
+	margin-left: 0;
+	float: left;
+}
+
+.addressblock fieldset.address .address2 input {
+	width: 350px;
+	margin: 0;
+}
+
+.addressblock fieldset.address .post_code{
+	width: 100px;
+	padding: 5px 0 0 81px;
+	margin-left: 0;
+	float: left;
+}
+
+.addressblock fieldset.address .post_code input {
+	width: 100px;
+	margin: 0;
+}
+
+.addressblock fieldset.address .city{
+	width: 100px;
+	padding: 5px 0 0 0px;
+	margin-left: 0;
+	float: left;
+}
+
+.addressblock fieldset.address .city input {
+	width: 100px;
+	margin: 0;
+}
+
+.addressblock fieldset.address .province{
+	width: 100px;
+	padding: 5px 0 0 0px;
+	margin-left: 0;
+	float: left;
+}
+
+.addressblock fieldset.address .province input {
+	width: 100px;
+	margin: 0;
+}
+
+.addressblock fieldset.general input {
+	width: 350px;
+	margin: 0;
+}
+
+.addressblock fieldset.tac  {
+	width: 350px;
+	margin: 0;
+}
+
+.addressblock fieldset.tac #cops {
+	float: left;
+}
+
+.addressblock fieldset.tac label {
+	float: left;
+}
+
+.additionalform fieldset.dubble .hour {
+	width: 50px;
+}
+
+.additionalform fieldset.dubble .minute {
+	width: 50px;
+}
+
+.additionalform fieldset.dubble .two {
+	width: 97px;
+}
+
+
+.completesubmit{
+	margin: 0;
+	width: 160px;
+	float: left;
+	padding: 0 0 0 300px;
+}
+
+.completesubmit input {
+	margin: 0;
+	padding: 0;
+}
+
+.paymenttype select {
+	position: absolute;
+	right: 260px;
+}
+
+.paymenttype .ch {
+	padding: 12px 0px 7px 0px;
+}
+
+.pcc h2{
+	margin: 0;
+}
+
+.pcc .left {
+	width: 280px;
+	height: 300px;
+	position: relative;
+}
+
+.pcc .right {
+	width: 390px;
+	height: 300px;
+	position: relative;
+}
+
+.pcc .left fieldset, .pcc .right fieldset {
+	margin: 0;
+	height: 20px;
+	width: 360px;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+#paymendet fieldset input {
+	float: left;
+}
+
+.paydl {
+	height: 260px;
+}
+
+.pcc .right .year select {
+	width: 70px;
+}
+
+
+.pcc .right fieldset.general input {
+	width: 140px;
+}
+
+
+#nodecontent_info_header {
+	background: url(../images/ie/content_info_header.png) top center no-repeat;
+	margin: auto;
+	padding: 14px 10px 0 17px;
+	position: relative;
+	height: 486px;
+}
+
+#testconcept {
+	background: url(../images/ie/testerconcept.png) top center no-repeat;
+	margin: auto;
+	padding: 14px 37px 0 17px;
+	position: relative;
+	height: 876px;
+}
+
+#testerfooter {
+	background: url(../images/ie/testerfooter.png) top center no-repeat;
+	height: 80px;
+	margin: 0 0 16px 0;
+}
+
+#contactfooter{
+	background: url(../images/ie/contactfooter.png) top center no-repeat;
+	height: 80px;
+	margin: 0 0 16px 0;
+}
+
+#badge_0{
+	background: url(../images/ie/badges.png) top left no-repeat;
+}
+
+#badge_p{
+	background: url(../images/ie/badges.png) bottom left no-repeat;
+}
+
+#info {
+	background: url(../images/ie/info_features.png) top left no-repeat;
+}
+
+.video {
+	background: url(../images/ie/video_back.png) top left no-repeat;
+}
+
+.video h4 {
+	background: url(../images/ie/i_cam.png) 4px left no-repeat;
+}
+
+
+.darker {
+	background: url(../images/ie/darker.png) top left repeat;
+}
+
+
+.supregorange{
+	display: block;
+	background: url(../images/ie/register.png) left top no-repeat;
+	width: 140px;
+	height: 50px;
+	position: absolute;
+	right: 10px;
+	bottom: 20px;
+	text-indent: -999999px;
+}
+
+
+.supregorange:hover{
+	background: url(../images/ie/register.png) left bottom no-repeat;
+}
+
+.supregblue, .supregbluepro{
+	background: url(../images/ie/register.png) right top no-repeat;
+}
+
+
+.supregblue:hover{
+	background: url(../images/ie/register.png) right bottom no-repeat;
+}
+
+
+.lblue .lhead {
+	background: url(../images/ie/compare_blue.png) top left no-repeat;
+}
+
+.lblue ul {
+	background: url(../images/ie/compare_blue.png) bottom left no-repeat;
+}
+
+.lblue ul li {
+	background: url(../images/ie/listborder.png) bottom left repeat-x;
+}
+
+.lblue .badge {
+	background: url(../images/ie/compare_blue_badge.png) top left no-repeat;
+}
+
+.lorange .lhead {
+	background: url(../images/ie/compare_orange.png) top left no-repeat;
+}
+
+.lorange ul {
+	background: url(../images/ie/compare_orange.png) bottom left no-repeat;
+}
+
+.lorange ul li {
+	background: url(../images/ie/listborder.png) bottom left repeat-x;
+}
+
+.lorange .badge {
+	background: url(../images/ie/compare_orange_badge.png) top left no-repeat;
+}
+
+

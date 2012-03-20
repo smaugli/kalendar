@@ -1,0 +1,38 @@
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<h2>Lisa/muuda/kustuta vormi välasid</h2>
+<p style="margin-top:-15px;"><small><a href="profile/forms"><- Tagasi vormide avalehele</a></small></p>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>Välja nimi: </td>
+            <td><input type="text" name="label" value="<?php echo $this->item['label'] ?>" /></td>
+        </tr>
+        <tr>
+            <td>Kirjeldus: </td>
+            <td><input type="text" name="name" value="<?php echo $this->item['name']; ?>" /></td>
+        </tr>
+        <tr>
+            <td>Välja tüüp: </td>
+            <td><select name="formType">
+                    <option value="text" <?php if($this->item['formType'] == 'text'){echo "Selected";}; ?> >Tekst</option>
+                    <option value="textarea" <?php if($this->item['formType'] == 'textarea'){echo "Selected";}; ?>>Tekstiala</option>
+                    <option value="select" <?php if($this->item['formType'] == 'select'){echo "Selected";}; ?>>Rippmenüü</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Järjekorra nr: </td>
+            <td><input type="text" name="ordering" value="<?php echo $this->item['ordering']; ?>"  /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Salvesta"></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,106 @@
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"><a href="index/logout">Logi välja</a></small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+<tr>
+    <td valign="top" style="width:15%">
+       <?php echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId
+         )); ?>
+</td>
+<td valign="top">
+<h2>Lisa/muuda/kustuta vormi väljasid</h2>
+<p style="margin-top:-15px;"><small><a href="profile/forms"><- Tagasi vormide avalehele</a></small></p>
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+       <tr>
+            <td><input type="text" name="fieldname"><br />&nbsp;</td>
+            <td>
+                <input type="submit" name="add" value="Lisa uus väli"><br />&nbsp;
+            </td>
+        </tr>
+    </table>
+</form>
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="formId" value="<?php echo $this->formId ?>" />
+    <table border="1" width="74%" align="left">
+        <tr>
+        <td style="width:100px">
+            <b>Välja nimi</b>
+        </td>
+         <td style="width:80px;">
+           <b>Tüüp</b>
+        </td>
+        <td style="width:30px;">
+            <b>Järjestus</b>
+        </td>
+        <td style="width:30px;">
+            <b>Muuda</b>
+        </td>
+        <td style="width:40px;">
+            <b>Kustuta</b>
+        </td>
+        </tr>
+         <?php
+        if(count($this->formElements) > 0){
+           
+            foreach($this->formElements as $element){
+            
+                ?>
+            <tr>
+                
+                <td style="width:100px">
+                    <?php echo $element['label'] ?>
+                </td>
+                <td style="width:80px">
+                    <?php
+                    if($element['formType'] == 'select'){
+                        echo '<form action="" method="post">';
+                        if(isset($element['option']) && !empty($element['option'])){
+  
+                            foreach($element['option'] as $item){
+                            ?>
+                    <?php echo $item['options']?> |<a href="delete/option/<?php echo $item['optionId']?>"> Kustuta</a><br />
+                            <?php }?>
+                           
+                            <?php
+                            }
+                        ?>
+                            
+                                <input type="hidden" name="optionField" value="<?php echo $element['id']?>" style="width:50px;">
+                                <input type="text" name="optionvalue"><input type="submit" name="adoption" value="Lisa"><br /><small>(lisa rippmenüü valikuid)</small>
+                            </form>
+                            
+              
+                    <?php
+                    }else{
+                        echo $element['formType'];
+                    }
+                     ?>
+                </td style="width:30px">
+                <td>
+                    <?php echo $element['ordering'] ?>
+                </td>
+                <td style="width:30px">
+                    <a href="profile/editfield/id/<?php echo $element['id'] ?>">Muuda</a>
+                </td>
+                <td style="width:40px">
+                    <a href="profile/deletefield/id/<?php echo $element['id'] ?>">Kustuta</a>
+                </td>
+                <?php }?>
+            </tr>
+        <?php } ?>
+    </table>
+</form>
+
+</td></tr>
+</tbody></table>

@@ -1,0 +1,15 @@
+<?php
+if($this->typeId == 1){
+    echo $this->partial('includes/edittrainer.phtml',array(
+        "data" => $this->data,
+        "organisations" => $this->organisations,
+        "counties" => $this->counties
+    ));
+}elseif($this->typeId == 2){
+    echo $this->partial('includes/editorganization.phtml',array(
+        "data" => $this->data,
+        "organisations" => $this->organisations,
+        "counties" => $this->counties
+    ));
+}
+?>

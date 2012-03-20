@@ -1,0 +1,51 @@
+<?php
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"><?php echo "Tere, "; ?>! <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" >
+        <h2><?php echo $this->title; ?></h2>
+        <a href="admin/topicadd">Lisa uus teema</a> <br /><br />
+   
+             <ul><?php
+                    foreach($this->items as $topic){
+                ?>
+                    <li><a href="admin/topicedit/<?php echo $topic['id']?>"><?php echo $topic['name']; ?></a>
+                        <a href="admin/remove/topics/<?php echo $topic['id']?>">Kustuta</a>
+                    <?php
+                    if(isset($topic['children']) && count($topic['children']) > 0){
+                        echo "<ul>";
+                        foreach($topic['children'] as $child){
+
+                    ?>
+                    <li><a href="admin/topicedit/<?php echo $child['id']?>"><?php echo $child['name']; ?>
+                        <a href="admin/remove/topics/<?php echo $child['id']?>">Kustuta</a></li>
+                    <?php } echo "</ul>"; }?>
+                    </li>
+
+                <?php }
+                ?>
+                </ul>
+</td>
+</tr>
+</tbody></table>

@@ -1,0 +1,71 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<script src="js/colorpicker.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#colorpickerField1').ColorPicker({
+                onSubmit: function(hsb, hex, rgb, el) {
+                        $(el).val(hex);
+                        $(el).ColorPickerHide();
+                },
+                onBeforeShow: function () {
+                        $(this).ColorPickerSetColor(this.value);
+                        $('.colorDiv').css('background','#'+this.value);
+                },
+
+                onChange: function (hsb, hex, rgb){
+             
+                    $('.colorDiv').css('background','#'+hex);
+                    $("#colorpickerField1").val(hex);
+                }
+
+        })
+        .bind('keyup', function(){
+                $(this).ColorPickerSetColor(this.value);
+                $('.colorDiv').css('background','#'+this.value);
+
+        });
+
+    });
+</script>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+
+       <?php
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" style="text-transform: capitalize">
+        <h2><?php echo $this->title; ?></h2>
+       <form action="" method="post">
+            
+            Koolituse vormi nimi:<br /><input type="text" name="name" value=""  /><br />
+            <div style="width:30px; height: 30px; background: transparent" class="colorDiv" name="color"></div>
+Vali värv: <small>(klikka kastil ja värvi valija avaneb)</small><br />
+           <input type="text" id="colorpickerField1" name="color"  /> <br />
+                       <br />
+            <input type="submit" value="Lisa" />
+    </form>
+        
+
+</td>
+</tr>
+</tbody></table>

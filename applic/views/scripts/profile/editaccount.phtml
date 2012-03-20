@@ -1,0 +1,219 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var number = "<?php echo count($this->exp); ?>";
+        $("#type1").click(function(){
+            $('.type1table').append('<tr  class="type2tr">  <td> <input type="hidden" name="experience['+number+'][type]" value="1" />  <table>  <tr>   <td>Description:</td><td> <textarea name="experience['+number+'][description]"></textarea> </td>  </tr>  <tr>  <td>Target audience *:</td><td><select name="experience['+number+'][target]"><option>1</option></select></td> </tr> <tr> <td>Content*:</td><td> <textarea name="experience['+number+'][content]"></textarea></td> </tr> <tr> <td>Why it was important experience</td><td> <textarea name="experience['+number+'][important]"></textarea></td>  </tr>  </table> </td>   </tr>');
+            number++;
+            return false;
+        });
+
+        $("#type2").click(function(){
+            $('.type2table').append('<tr  class="type2tr">  <td> <input type="hidden" name="experience['+number+'][type]" value="2" />  <table>  <tr>   <td>Description:</td><td> <textarea name="experience['+number+'][description]"></textarea> </td>  </tr>  <tr>  <td>Target audience *:</td><td><select name="experience['+number+'][target]"><option>1</option></select></td> </tr> <tr> <td>Content*:</td><td> <textarea name="experience['+number+'][content]"></textarea></td> </tr> <tr> <td>Why it was important experience</td><td> <textarea name="experience['+number+'][important]"></textarea></td>  </tr>  </table> </td>   </tr>');
+            number++;
+            return false;
+        });
+    });
+</script>
+<?php //echo '<pre>'; print_r($this->data); echo '</pre>aaaaaaaaaaaaaaaaaaaaaaaa'; ?>
+<?php //echo '<pre>'; print_r($this->exp); echo '</pre>'; ?>
+<h1>Muuda oma profiili </h1>
+<a href="profile">back</a>
+<?php
+if(count(@$this->error) > 0){
+    foreach(@$this->error as $error){
+        var_Dump($error);
+        echo "<br/>";
+    ?>
+<?php } }?>
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Description: * </label></td>
+            <td>
+                <textarea name="description"><?php echo @$this->data['description'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Topics *: </label></td>
+            <td>
+                <?php
+//                var_dump($this->topics);exit;
+                if(count(@$this->topics) > 0){
+                    ?>
+                <ul>
+                <?php
+               
+                    foreach(@$this->topics as $topic){
+                        $checked = '';
+                         foreach (@$this->topic as $value) {
+//                                     $value = 'topic'.$value;
+                                     if($topic['id'] == $value){
+                                         $checked = "checked";
+                                 }
+                        }
+
+                ?>
+                    <li><?php echo $topic['name']; ?><input type="checkbox" <?php echo $checked ?> name="topics[<?php echo $topic['id']; ?>]" value="<?php echo $topic['id']; ?>" /></li>
+                    <?php
+                    $checke = '';
+                    if(isset($topic['children']) && count($topic['children']) > 0){
+                        echo "<ul>";
+                        foreach($topic['children'] as $child){
+                        foreach (@$this->topic as $value) {
+//                            echo $child['id'];exit;
+//                                     $value = 'topic'.$value;
+                                     if($child['id'] == $value){
+                                         $checke = "checked";
+                                 }
+                        }
+
+
+                    ?>
+                    <li><?php echo $child['name']; ?><input <?php echo $checke ?> type="checkbox"  name="topics[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                        <?php } echo "</ul>"; }?>
+                    </li>
+                <?php }
+                ?>
+                </ul>
+                <?php
+                } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><label>targets *: </label></td>
+            <td>
+                <?php
+//                var_dump($this->targets);exit;
+                if(count(@$this->targets) > 0){
+                    ?>
+<!--                <ul>-->
+                <?php
+
+                    foreach(@$this->targets as $target){
+                        $checked = '';
+                         foreach (@$this->target as $value) {
+//                                     $value = 'target'.$value;
+                                     if($target['id'] == $value){
+                                         $checked = "checked";
+                                 }
+                        }
+
+                ?>
+                    <li><?php echo $target['name']; ?><input type="checkbox" <?php echo $checked ?> name="targets[<?php echo $target['id']; ?>]" value="<?php echo $target['id']; ?>" /></li>
+                    <?php
+                    $checke = '';
+                    if(isset($target['children']) && count($target['children']) > 0){
+                        echo "<ul>";
+                        foreach($target['children'] as $child){
+                        foreach (@$this->target as $value) {
+//                            echo $child['id'];exit;
+//                                     $value = 'target'.$value;
+                                 if($child['id'] == $value){
+                                         $checke = "checked";
+                                 }
+                        }
+
+
+                    ?>
+                    <li><?php echo $child['name']; ?><input checked="<?php echo $checke ?>" type="checkbox"  name="targets[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                        <?php } echo "</ul>"; }?>
+                    
+                <?php }
+                ?>
+<!--                </ul>-->
+                <?php
+                } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Languages *: </label></td>
+            <td>
+                <?php
+                $checked = '';
+                if(count(@$this->languages) > 0){
+                    foreach(@$this->languages as $language){
+                        if(@$this->data['languages'] == $language['id']){
+                            $checked = "checked";
+                        }
+                        echo $language['name'];
+
+                ?>
+                        <input checked="<?php echo $checked ?>" type="checkbox" name="languages[<?php echo $language['id']; ?>]" value="<?php echo $language['id']; ?>" />
+                <?php
+                    }
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><a href="#" id="type1">+</a></td>
+        </tr>
+        <tr>
+            <td  valign="top"><label>Teaching experience(s)<br /> in Estonia:(add one or more)  </label></td>
+            <td>
+                <table class="type1table">
+                    <tr class="type1tr"><td>
+                        <input type="hidden" name="experience[0][type]" value="1" />
+                        <table>
+
+                            <?php
+                            foreach (@$this->exp as $key => $value) {
+                           
+                             ?>
+                            <tr>
+                                <td>Description *:</td><td><textarea name="experience[<?php echo $key; ?>][description]"><?php echo $value['description']; ?></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>Target audience *:</td><td> <select name="experience[<?php echo $key; ?>][target]"><option>1</option></select></td>
+                            </tr>
+                            <tr>
+                                 <td>Content*:</td><td><textarea name="experience[<?php echo $key; ?>][content]"><?php echo $value['content']; ?></textarea></td>
+                            </tr>
+                            <tr>
+                                 <td>Why it was important experience *:</td><td><textarea name="experience[<?php echo $key; ?>][important]"><?php echo $value['important']; ?></textarea></td>
+                            </tr>
+                            <?php } ?>
+                        </table>
+                    </td></tr>
+                </table>
+            </td>
+        </tr>
+   
+        <tr>
+            <td><label>What do you value about teaching? : </label></td>
+            <td>
+                <textarea name="aboutTeaching"><?php echo @$this->data['aboutTeaching'] ?></textarea>
+            </td>
+        </tr>
+	<tr>
+            <td><label>Tell about yourself  </label></td>
+            <td>
+                <textarea name="about"><?php echo @$this->data['about'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Professional trainings   </label></td>
+            <td>
+                <textarea name="professionalTrainings"><?php echo @$this->data['professionalTrainings'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Main interests    </label></td>
+            <td>
+                <textarea name="interests"><?php echo @$this->data['interests'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Interest in ESF    </label></td>
+            <td>
+                <textarea name="ESF"><?php echo @$this->data['ESF'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="save" />
+                <input type="reset" value="reset" />
+            </td>
+        </tr>
+    </table>
+</form>

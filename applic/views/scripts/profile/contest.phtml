@@ -1,0 +1,75 @@
+<h2>Konkurss koolitaja leidmiseks "" jaoks</h2>
+
+<a href="profile">back</a>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"><?php echo "Tere, "; ?>! <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%" colspan="4">
+<form action="profile/contest" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Title of a training event:</label></td><td><input type="text" name="title" value="" /></td>
+        </tr>
+        <tr>
+            <td><label>Organiser of the event : </label></td><td><input type="text" name="organiser" value="" /></td>
+        </tr>
+         <tr>
+            <td><label>Organiserā€™s e-mail : </label></td><td><input type="text" name="email" value="" /></td>
+        </tr>
+        <tr>
+            <td><label>Training events details : </label></td><td>
+                <textarea name="details"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Add a file: </label></td><td> <input type="file" name="contest_file" /> file description  : <input type="text" name="contest_description" value="" /></td>
+        </tr>
+         <tr>
+            <td>Link & link description : </td>
+            <td><input type="text" name="contest_link" value="http://"  /> link description: <input type="text" name="link_description" value="" /></td>
+        </tr>
+      <tr>
+            <td><label>Terms for apply  : </label></td><td>
+                <textarea name="terms "></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td> <p><input id="datepicker" name="date" type="text"> Location: <input type="text" name="location" /></p></td>
+        </tr>
+
+        <tr>
+            <td><label>Languages: </label></td>
+            <td>
+                <?php
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+                ?>
+               <?php echo $language['name']; ?> <input type="checkbox" value="<?php echo $language['id']; ?>" name="language[<?php echo $language['id']; ?>]" />
+                <?php } } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="register" />
+    <input type="reset" value="reset" /></td>
+        </tr>
+  
+    </table>
+</form>
+    </td>
+</tr>
+</tbody>

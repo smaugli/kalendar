@@ -1,0 +1,120 @@
+<script>
+    $(document).ready(function(){
+        $( ".datepicker" ).datepicker();
+
+        $('.adddate').click(function(){
+
+
+
+            $('.dateStack').append('<tr><td><p><input class="datepicker" name="date[]" type="text"> Location: <input type="text" name="location[]" /><a href="#" class="removeItem">Remove</a> </p>                       </td>                    </tr>');
+
+            $( ".datepicker" ).datepicker();
+
+
+            $('.removeItem').click(function(){
+                $(this).parent('p').parent('td').parent('tr').remove();
+                return false;
+            });
+
+            return false;
+
+        });
+
+        $('.assignForm').click(function(){
+            $('.assignFormI').attr('disabled', '');
+            $('.assignUploadI').attr('disabled', 'disabled');
+            $('.assignLinkI').attr('disabled', 'disabled');
+
+        });
+
+        $('.assignUpload').click(function(){
+            $('.assignUploadI').attr('disabled', '');
+            $('.assignFormI').attr('disabled', 'disabled');
+            $('.assignLinkI').attr('disabled', 'disabled');
+        });
+
+        $('.assignLink').click(function(){
+            $('.assignLinkI').attr('disabled', '');
+            $('.assignFormI').attr('disabled', 'disabled');
+            $('.assignFormI').attr('disabled', 'disabled');
+        });
+
+
+    });
+</script>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%" colspan="4">
+<form action="" method="post" enctype="multipart/form-data">
+<h2>Lisa koolitaja konkurss</h2>
+    <table>
+        <tr>
+            <td><label>Koolituse pealkiri:</label></td><td><input type="text" name="title" value="<?php echo $this->data['title'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Koolituse korraldaja:</label></td><td><input type="text" name="organiser" value="<?php echo $this->data['organiser'] ?>" /></td>
+        </tr>
+         <tr>
+            <td><label>Korraldaja email:</label></td><td><input type="text" name="email" value="<?php echo $this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Koolitusprojekti sisu ülevaade ja eesmärk: </label></td><td>
+                <textarea name="details"><?php echo $this->data['details'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Lisa fail ja faili kirjeldus: </label></td><td> <input type="file" name="contest_file" /> <input type="text" name="contest_description" value="<?php echo $this->data['contest_description'] ?>" /></td>
+        </tr>
+         <tr>
+            <td>Lisa link ja lingi kirjeldus:</td>
+            <td><input type="text" name="contest_link" value="<?php if($this->data['contest_link'] != '' && $this->data['contest_link'] != 'http://'){echo $this->data['contest_link'];}else{echo "http://";} ?>"  /> lingi kirjeldus: <input type="text" name="link_description" value="<?php echo $this->data['link_description'] ?>" /></td>
+        </tr>
+      <tr>
+            <td><label>Kandideerimistingimused: </label></td><td>
+                <textarea name="terms" class="rte"><?php echo $this->data['terms'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Toimumise aeg: </td>
+            <td> <p><input class="datepicker" name="date" type="text" value="<?php echo $this->data['date'] ?>"> ja koht: <input type="text" name="location" value="<?php echo $this->data['location'] ?>"/></p></td>
+        </tr>
+
+        <tr>
+            <td><label>Keeled:</label></td>
+            <td>
+                <?php
+
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+               
+
+                ?>
+               <?php echo $language['name']; ?> <input type="checkbox" value="<?php echo $language['id']; ?>" name="language[<?php echo $language['id']; ?>]" />
+                <?php } } ?>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Lisa" />
+</td>
+        </tr>
+  
+    </table>
+</form>
+    </td>
+</tr>
+</tbody>

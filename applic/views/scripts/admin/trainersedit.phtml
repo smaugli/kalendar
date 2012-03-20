@@ -1,0 +1,136 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+
+       <?php
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" style="text-transform: capitalize">
+        <h2>Muuda koolitaja andmeid</h2>
+       <form action="" method="post">
+             <table>
+        <tr>
+            <td><label>Kasutajanimi: </label></td><td><input type="text" name="username" value="<?php echo @$this->data['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Email: </label></td><td><input type="text" name="email" value="<?php echo @$this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Eesnimi: </label></td><td><input type="text" name="name" value="<?php echo @$this->data['name'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Perekonnanimi: </label></td><td><input type="text" name="surname" value="<?php echo @$this->data['surname'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Aadress: </label></td><td><input type="text" name="address" value="<?php echo @$this->data['address'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Aadress avalik? </label></td><td><input type="checkbox" name="publicAdrress"  value="1" <?php if(@$this->data['publicAdrress'] == 1){echo "checked";} //echo @$this->data->publicAdrress ?> /></td>
+        </tr>
+        <tr>
+            <td><label>Maakond: </label></td><td>
+                <select name="county">
+                    <option></option>
+                    <?php
+                    if(count($this->counties) > 0){
+                        foreach($this->counties as $county){
+                            ?>
+                    <option value="<?php echo $county['id'] ?>"
+                            <?php
+                            if($this->data['county'] == $county['id']){
+                                echo "Selected";
+                            }
+                            ?>
+                            ><?php echo $county['name'] ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Telefon: </label></td><td><input type="text" name="phone" value="<?php echo @$this->data['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Telefon avalik? </label></td><td><input type="checkbox" name="publicPhone" value="1" <?php // echo @$this->data->publicPhone ?> /></td>
+        </tr>
+        <tr>
+            <td><label>Veeb: </label></td><td><input type="text" name="website" value="<?php echo @$this->data['website'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Skype: </label></td><td><input type="text" name="skype" value="<?php echo @$this->data['skype'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>LinkedIn URL: </label></td><td><input type="text" name="linkedIn" value="<?php echo @$this->data['linkedIn'] ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Sugu: </label></td><td><input type="text" name="sex" value="<?php echo @$this->data['sex'] ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Foto: </label></td><td> <input type="file" name="photo" /><img src="img/trainers/<?php echo @$this->data['photo']?>" style="width:50px;" alt="" /></td>
+        </tr>
+        <tr>
+            <td>
+
+                <label>Organisatsioon: </label></td><td>
+                <select name="organisation">
+                    <option></option>
+                    <?php
+                    if(count($this->organisations) > 0){
+
+                        foreach ($this->organisations as $organisation){
+
+                    ?>
+                    <option value="<?php echo $organisation['id']; ?>"
+                            <?php
+                            if($this->data['organisation'] == $organisation['id']){
+                                echo "Selected";
+                            }
+                            ?>
+                            ><?php echo $organisation['name']; ?></option>
+                    <?php } }?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Koolitaja konkursid: </label></td><td><?php if(@$this->data['level'] == 1){?>
+                <a href="admin/contestapprove/<?php echo @$this->data['id']; ?>">Lülita õigus lisada konkursse välja</a>
+            <?php }elseif(@$this->data['level'] == 0){?>
+                <a href="admin/contestnotapprove/<?php echo @$this->data['id']; ?>">Lülita õigus lisada konkursse sisse</a>
+           <?php }
+            ?></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Salvesta muudatused" />
+</td>
+        </tr>
+
+    </table>
+    </form>
+
+
+</td>
+</tr>
+</tbody></table>

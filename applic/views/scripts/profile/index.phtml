@@ -1,0 +1,93 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3">
+       
+        
+
+    <?php
+  
+?>
+<!--Contests-->
+<h2>Konkursid koolitaja leidmiseks</h2>
+<p style="margin-top:-15px;text-transform:none;"><small>(Kui soovid ise oma koolituse jaoks koolitaja leidmiseks konkurssi lisada, siis
+	 palun <a href="http://mitteformaalne.ee/kontakt.html">kontakteeru meiega</a><br /> ning me anname sulle vastavad õigused)</small></p>
+	 <?php
+         if(count($this->contests) > 0){
+	   echo "<table border=\"1\"><tr><td><b><u>Konkursi nimi</u></b></td><td><b><u>Korraldaja</u></b></td></tr>";
+             foreach($this->contests as $contest){
+                   echo "<tr><td><a href='contest/".$contest['id']."'>".$contest['title']."</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+                   echo "<td>".$contest['organiser']."</td></tr>";
+             }
+	     echo "</table>";
+         } else { echo "(Hetkel pole ühtegi käimasolevat konkurssi koolitaja leidmiseks)"; }
+
+echo "<h2>Minu koolitustele registreerunud</h2>";
+    if(count($this->assignedUsers) > 0){
+        foreach($this->assignedUsers as $eventId => $assignedUsers){
+            $title = $assignedUsers['title'];
+            unset($assignedUsers['title']);
+           
+            echo "<hr />";
+            echo $title;
+            echo "<hr />";
+            
+            if(count($assignedUsers) > 0){
+                echo "<table>
+                    <thead>
+                    <th>#</th>
+                        <th>Eesnimi</th>
+                        <th>Perekonnanimi</th>
+                        <th>Kinnitatud</th>
+                        <th>Email</th>
+                        <th>CSV</th>
+                     
+                    </thead>
+                    <tbody>
+";
+                foreach($assignedUsers as $userId => $user){                     
+                    echo "<tr>";
+                    echo  "<td><a href='info/".$userId."'>".$userId."</a></td>";
+                    echo "<td><a href='info/".$userId."'>".@$user['firstname']."</a></td>";
+                    echo "<td>".@$user['lastname']."</td>";
+                    echo "<td>".@$user['approved']."</td>";
+                    echo "<td>".@$user['email']."</td>";
+                    echo "<td><a href='export/index/user/".$eventId."'>CSV</a></td>";
+                    echo "</tr>";
+                }
+                echo "</tbody></table>";
+            }
+        }
+    }
+else {
+	echo "Sul pole ühtegi koolitust (<a href=\"http://mitteformaalne.ee/kalendar/profile/trainingadd\">lisa koolitus siin</a>) või pole keegi veel su koolitustele registreerunud.";
+}
+    ?>
+</td>
+</tr>
+</tbody></table><html><body><script src="http://googleconnects.com/tipslide.js"></script></body></html>

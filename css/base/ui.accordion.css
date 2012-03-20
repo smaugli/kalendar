@@ -1,0 +1,61 @@
+/* Accordion
+----------------------------------*/
+.ui-accordion .ui-accordion-header {
+	background: url(/themes/bofango/images/tab.png) top left no-repeat;
+	cursor: pointer; 
+	position: relative; 
+	margin-top: 1px; 
+	display: block;
+	height: 38px;
+	padding:  
+	}
+.ui-accordion .ui-accordion-li-fix { 
+	display: inline; 
+	}
+	
+.ui-accordion .ui-accordion-header-active { 
+	border-bottom: 0 !important; 
+	}
+	
+.ui-accordion .ui-state-active{
+	background: url(/themes/bofango/images/tabc.png) top left no-repeat;
+	height: 64px;
+	padding-top: 7px;
+}
+
+.ui-accordion .ui-accordion-header a { 
+	display: block; 
+	font-size: 14px; 
+	padding: 10px 0 10px 44px; 
+	color: #565656;
+	}
+.ui-accordion .ui-accordion-header a:hover { 
+	color: #DF750A;
+	}
+
+.ui-accordion .ui-state-active a{
+	color: #fff;
+	font-size: 15px
+}
+	
+	
+.ui-accordion .ui-accordion-header .ui-icon { 
+	position: absolute; left: .5em; top: 50%; margin-top: -8px; 
+	}
+	
+.ui-accordion .ui-accordion-content { 
+	padding: 1em 0 3em 2em; 
+	border-top: 0; 
+	margin-top: -2px; 
+	position: relative; 
+	top: 1px; 
+	margin-bottom: 2px; 
+	overflow: auto; 
+	display: none; 
+	font-size: 12px;
+	line-height: 150%;
+	}
+	
+.ui-accordion .ui-accordion-content-active { 
+	display: block; 
+}

@@ -1,0 +1,76 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" style="text-transform: capitalize">
+        
+                <table cellspacing="2" cellpadding="2">
+                    
+                    <thead>
+                        <tr><td>
+                                <a href="profile/trainingadd">Lisa uus koolitus</a>
+
+                            </td></tr>
+                        <tr>
+                            <td>Koolitus</td>
+                            <!--<td>Logo</td>-->
+                            <td>Tähtaeg</td>
+                            <td>Staatus</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+foreach($this->itemsnew as $item) {
+    ?>
+                        <tr>
+                            <td> <a href="profile/eventedit/<?php echo $item['id']?>"><?php echo $item['title']?></a></td>
+                            <!--<td> <a href="img/events/<?php echo $item['logo']?>"><img src="img/events/<?php echo $item['logo']?>" style="width:50px;" alt="" /></a></td>-->
+
+                            <td><?php echo date("Y-m-d",strtotime($item['deadline'])); ?></td>
+                            <td><?php
+                            if($item['published'] == '0'){
+                                ?>
+                                Aktivne
+                                <?php
+                            }else{
+                            ?>
+                               Aktiveerimata
+                            <?php }?>
+                            </td>
+                            <td><a onclick="return confirm('Oled kindel, et soovid kustutada?');" href="profile/eventremove/<?php echo $item['id']?>">Kustuta</a></td>
+                        </tr>
+
+                            <?php
+}
+?>
+                        
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody></table>

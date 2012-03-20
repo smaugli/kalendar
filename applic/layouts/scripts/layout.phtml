@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title> CMS </title>
+        <base href="<?php echo ROOT_URL?>" />
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+        <meta name="author" content="Your Name here" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+
+        <script src="js/jquery-1.4.2.js" ></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js" ></script>
+        <script src="js/datepicker.js" ></script>
+        <script type="text/javascript" src="<?php echo ROOT_URL?>js/tinymce/jquery.tinymce.js"></script>
+        <script type="text/javascript">
+                $().ready(function() {
+                        $('textarea.rte').tinymce({
+                                // Location of TinyMCE script
+                                script_url : '<?php echo ROOT_URL?>js/tinymce/tiny_mce.js',
+                                // General options
+                                theme : "advanced",
+                                plugins : "imagemanager",
+                                width : "500px",
+                                height : "300px",
+                                // Theme options
+                                theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,fontselect,fontsizeselect,bullist,numlist",
+                                theme_advanced_buttons2 : "outdent,indent,blockquote,|,undo,redo,|,link,unlink,cleanup,code,|,insertdate,inserttime,preview,|,forecolor,backcolor,insertimage",
+                                theme_advanced_toolbar_location : "top",
+                                theme_advanced_toolbar_align : "left",
+                                theme_advanced_statusbar_location : "bottom",
+                                theme_advanced_resizing : false,
+                                theme_advanced_resize_horizontal : false
+
+                        });
+                });
+
+        </script>
+        <!-- /TinyMCE -->
+
+        <script>
+	        $(function() {
+		        $( "datepicker" ).datepicker();
+                $( "datepicker2" ).datepicker();
+	        });
+	    </script>
+        <link rel="stylesheet" href="css/ui-lightness/ui.all.css" />
+        <link rel="stylesheet" href="css/colorpicker.css" />
+        <link rel="stylesheet" href="css/default.css" />
+        <link rel="stylesheet" href="css_new/style.css" />
+        <link rel="stylesheet" href="css_new/webfonts/stylesheet.css" />
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+	<!--<div id="bg">-->
+		<!--<div id="bofango">-->
+		<!--	<div id="header" class="fixed">
+			
+			</div>-->
+
+            <?php echo $this->layout()->content ?>
+        <!--            </div>-->
+
+		<!--</div>-->
+	<div class="bottom"></div>
+	</div>
+            <br clear="all"/>
+            <div id="footer">
+		
+	</div><!--footer-->
+
+    </body>
+</html>

@@ -1,0 +1,286 @@
+html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+ 
+
+
+#menu ul.sf-shadow ul {
+	background:	none;
+}
+
+.submit input, .nextsubmit, .complete {
+	font-size:0px;
+	display: block;
+	line-height: 0px;
+}
+
+
+#nodecontent {
+	background: url(../images/content_bg.jpg) top center no-repeat;
+	margin: auto;
+	padding: 18px 37px 0 17px;
+	position: relative;
+}
+
+/*/////////////////////ADDRESS////////////////////////*/
+
+fieldset.address {
+	margin: 0 0 8px 0;
+}
+
+fieldset.address .input label, fieldset.address .select label{
+	display: none;
+}
+
+fieldset.address .address1 {
+	width: 420px;
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+fieldset.address .address2 {
+	width: 490px;
+	float: left;
+	margin: 4px 0 0 85px;
+	padding: 0;
+}
+
+fieldset.address .address2 input{
+	width: 421px;
+}
+
+fieldset.address .post_code {
+	width: 253px;
+	float: left;
+	margin: 5px 4px 0 0px;
+}
+
+fieldset.address .post_code input{
+	width: 72px;
+	float: right;
+}
+
+fieldset.address .city {
+	width: 160px;
+	float: left;
+	margin: 4px 15px 0 0;
+}
+
+
+fieldset.address .province {
+	width: 160px;
+	float: left;
+	margin: 4px 0 0 0;
+}
+
+fieldset.address .country {
+	width: 204px;
+	float: left;
+	margin: 4px 0 0 0;
+}
+
+fieldset.person .select {
+	width: 73px;
+	margin: 1px 10px 0 0;
+	float: left;
+}
+
+/*////////////////////////////////////////////////////////*/
+
+.packageprice{
+	right: 20px;
+}
+
+#searchbox h2 {
+	display: none;
+}
+
+#searchbox input:focus {
+	background-image: none;
+	background-color: #F3CD14;
+}
+
+.video {
+	height: 315px;
+}
+
+.video .vthumb {
+	bottom: -4px
+}
+
+#edit-captcha-response-wrapper{
+	position: relative;
+}
+
+.captcha .description {
+	position: absolute;
+	left: 0px;
+	top:40px;
+	color:#CCCCCC;
+	padding:0px 0 20px 168px;
+}
+
+.euro20{
+	background: url(../images/20badge.png) center left no-repeat;
+	padding: 16px 0 40px 260px;	
+	margin: 20px 0 0 0;
+	color: #666666;
+	height: 90px;
+}
+
+.form-submit{
+	font-size:0px;
+	line-height: 0px;
+}
+
+#tagtabs .dlcon, #loctabs .dlcon {
+	padding: 46px 20px 30px 20px;
+}
+
+#tagtabs dt, #loctabs dt {
+	width: 25%;
+}
+
+#tagtabs dd, #loctabs dd {
+	width: 70%;
+}
+
+#tagtabs dd a.assigned, #loctabs dd a.assigned, #rightcol a.assigned{
+	background: url(../images/tagicons.png) -2px 3px no-repeat;
+	height: 16px;
+	display: block;
+	float: left;
+	padding: 0 6px 2px 12px;
+}
+
+#tagtabs dd a.unassigned, #loctabs dd a.unassigned, #rightcol a.unassigned, .legend a.unassigned{
+	background: url(../images/tagicons.png) -2px -34px no-repeat;
+	height: 16px;
+	display: block;
+	float: left;
+	padding: 0 6px 2px 12px;
+}
+
+#tagtabs dd a.assigned:hover, #loctabs dd a.assigned:hover, #rightcol a.assigned:hover {
+	background: url(../images/tagicons.png) -2px -16px no-repeat;
+	color: #E47300;
+}
+
+#tagtabs dd a.unassigned:hover, #loctabs dd a.unassigned:hover, #rightcol a.unassigned:hover {
+	background: url(../images/tagicons.png) -2px -53px no-repeat;
+	color: #E47300;
+}
+
+#tagtabs .legend a.assigned, #loctabs .legend a.assigned  {
+	background: url(../images/tagicons.png) -2px 1px no-repeat;
+	padding: 0 6px 0 12px;
+}
+
+
+#tagtabs .legend a.unassigned, #loctabs .legend a.unassigned {
+	background: url(../images/tagicons.png) -2px -36px no-repeat;
+	padding: 0 6px 0 12px;
+}
+
+.camptabs {
+	padding: 2px 0 0 0;
+}
+
+.camptabs li.ui-state-active a p {
+	display: none;
+}
+
+#bcal {
+	width: 350px;
+}
+
+fieldset.booking {
+	display: block;
+	width: 320px;
+	border-bottom: 1px dotted #B2B2B2;
+	background-image: none;
+	margin: 0 0 10px 0;
+}
+
+.datepickerGoPrev span, .datepickerGoNext span{
+	background:none;
+}
+
+.total {
+	font-size: 11px;
+}
+
+.addressblock fieldset.address .address2 {
+	margin: 4px 0 0 0;
+	width: 360px;
+}
+
+.addressblock fieldset.address .address2 input {
+	width: 360px;
+	margin: 0 0 0 81px;
+}
+
+
+.addressblock fieldset.address .post_code, fiedset.address .post_code {
+	margin: 4px 4px 0 4px;
+	width: 160px;
+}
+
+.addressblock fieldset.address .post_code input {
+	margin-left:8px;
+}
+
+.addressblock fieldset.address .province input {
+	width: 128px;
+}
+
+.completesubmit {
+	margin: 0;
+	padding: 20px 0 0 330px;
+}
+
+.addressblock input, .addressblock select {
+	z-index: 1;
+}
+
+#birthdaywrapper {
+	width: 185px;
+	height: 160px;
+	left: 116px;
+	top:390px;
+}
+
+#arrivalwrapper{
+	top:118px;
+	left: 100px;
+}
+
+#departurewrapper{
+	top:233px;
+	left: 100px;
+}
+
+#BirthdayTrigger{
+	top:6px; 
+	left: 446px;
+}
+
+.paymenttype select {
+	position: absolute;
+	right: 260px;
+}
+
+.paymenttype .ch {
+	padding: 12px 0px 7px 0px;
+}
+
+.views-row{
+	min-height:1%;
+	display: block;
+}
+
+#block-faceted_search_ui-1_current .faceted-search-facet {
+	padding: 8px 0 14px 32px;
+	display: block;
+}
+

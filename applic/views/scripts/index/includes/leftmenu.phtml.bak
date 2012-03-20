@@ -1,0 +1,49 @@
+
+<?php
+if($this->typeId == 1){
+    if($this->level == 1){
+?>
+<b><a href="profile/trainingedit">Events </a></b><br>
+<b><a href="profile/contests">Contests </a></b><br>
+<b><a href="profile/editteacher">Minu profiil</a></b><br>
+<b><a href="profile/editaccount/">My Info </a></b><br>
+<b><a href="profile/forms">Forms </a></b>
+<?php
+}elseif($this->level == 0){
+?>
+<b><a href="profile/trainingedit">Events </a></b><br>
+<b><a href="profile/editteacher">My profile </a></b><br>
+<b><a href="profile/editaccount/">My Info </a></b><br>
+<b><a href="profile/forms">Forms </a></b>
+<?php
+}}elseif($this->typeId == 2){
+    if($this->level == 1){
+
+?>
+<b><a href="profile/trainingedit">Events </a></b><br>
+<b><a href="profile/contests">Contests </a></b><br>
+<b><a href="profile/editteacher">organisation profile </a></b><br>
+<b><a href="profile/forms">Forms </a></b><br>
+<b><a href="profile/trainersorg">Trainers</a></b><br>
+<?php
+}elseif($this->level == 0){?>
+<b><a href="profile/trainingedit">Events </a></b><br>
+<b><a href="profile/editteacher">organisation profile </a></b><br>
+<b><a href="profile/forms">Forms </a></b>
+
+
+<?php }}elseif($this->typeId == 3){ ?>
+<b><a href="admin/contests">Contests </a></b><br>
+<b><a href="admin/trainers">Trainers </a></b><br>
+<b><a href="admin/organisations">Organisations </a></b><br>
+<b><a href="admin/events">Training Events </a></b><br>
+<hr />
+<b><a href="admin/sectors">sectors </a></b><br>
+<b><a href="admin/languages">Languages </a></b><br>
+<b><a href="admin/counties">Counties </a></b><br>
+<b><a href="admin/targets">Targets </a></b><br>
+<b><a href="admin/topics">Topics </a></b><br>
+<b><a href="admin/teachingmaterials">Teaching Materials </a></b>
+<b><a href="admin/types">Training Type </a></b>
+
+<?php } ?>

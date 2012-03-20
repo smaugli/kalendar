@@ -1,0 +1,40 @@
+<h1>Edit Organization</h1>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<a href="profile">back</a>
+
+<form action="profile/editorganization" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Username: </label></td><td><input type="text" name="username" value="<?php echo @$this->data['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>E-mail: </label></td><td><input type="text" name="email" value="<?php echo @$this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Name of the organisation : </label></td><td><input type="text" name="name" value="<?php echo @$this->data['name'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Address: </label></td><td><input type="text" name="address" value="<?php echo @$this->data['address'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Phone : </label></td><td><input type="text" name="phone" value="<?php echo @$this->data['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Website : </label></td><td><input type="text" name="website" value="<?php echo @$this->data['website'] ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Logo  : </label></td><td> <input type="file" name="logo" /><img src="img/organizations/<?php echo @$this->data['logo']?>" style="width:50px;" alt="" /></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><input type="submit" value="save" />
+            <input type="reset" value="reset" /></td>
+        </tr>
+    </table>
+</form>

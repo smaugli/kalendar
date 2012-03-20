@@ -1,0 +1,272 @@
+.ex_left{
+	width: 200px;
+	float: left;
+	position: relative;
+}
+
+.ex_right {
+	width: 740px;
+	float: right;
+	padding: 60px 0 60px 0;
+	position: relative;
+}
+
+.ex_right h2{
+	display: none;
+}
+
+.ex_shadow {
+	background: url(../images/ex_shadow.png) top right no-repeat;
+	width: 24px;
+	height: 540px;
+	position: absolute;
+	top:60px;
+	right: -1px;
+	
+}
+
+.block-faceted_search_ui{
+	margin: 10px 0 10px 0;
+}
+
+#block-faceted_search_ui-1_keyword{
+	margin: 10px 0 0 10px;
+	position: relative;
+	height: 40px;
+}
+
+.block-faceted_search_ui form{
+	background: url(../images/facetsearch.png) top left no-repeat;
+	height: 40px;
+}
+
+.block-faceted_search_ui .form-item {
+	float: left;
+}
+
+.block-faceted_search_ui input[type="text"]{
+	border: none;
+	background: transparent;
+	width: 140px;
+	float: left;
+	margin: 2px 0 4px 10px;
+}
+
+.block-faceted_search_ui input[type="submit"] {
+	background: url(../images/search_submit.png) top left no-repeat;
+	width: 17px;
+	height: 17px;
+	text-indent: -99999px;
+	border: none;
+	cursor: pointer;
+	margin: 4px 0 4px 6px;
+	position: absolute;
+	right:12px;
+
+	}
+
+.block-faceted_search_ui input:focus {
+	border: 0;
+}
+
+.block-faceted_search_ui input[type="submit"]:hover {
+	background-position: bottom left;
+}
+
+
+#edit-refine-wrapper{
+	display: none;
+}
+
+.block-faceted_search_ui .faceted-search-more{
+	display: none;
+}
+
+#block-faceted_search_ui-1_current{
+	font-size: 11px;
+}
+
+#block-faceted_search_ui-1_current h2{
+	color: #DB9D10;
+	font-size: 12px;
+	padding: 6px 0 6px 32px;
+}
+
+#block-faceted_search_ui-1_current a{
+	display: block;
+	float: left;
+}
+
+#block-faceted_search_ui-1_guided p {
+	display: none;
+}
+
+#block-faceted_search_ui-1_current .faceted-search-facet {
+	padding: 8px 0 8px 32px;
+}
+
+#block-faceted_search_ui-1_current .faceted-search-facet a{
+	background: url(../images/faceticons.png) left -38px no-repeat;
+	display: block;
+	padding: 0 0 3px 18px;
+	color: #DB9D10;
+}
+
+#block-faceted_search_ui-1_current .faceted-search-facet a:hover{
+	background-position: left -57px;
+}
+
+#block-faceted_search_ui-1_guided h3 {
+	background-color: #E6E6E6;
+	display: block;
+	color: #6B6B6B;
+	font-size: 12px;
+	padding: 6px 0 6px 32px;
+}
+
+
+#block-faceted_search_ui-1_guided .item-list {
+	padding: 6px 0 6px 32px;
+	font-size: 11px;
+}
+
+
+#block-faceted_search_ui-1_guided .item-list li{
+	background: url(../images/faceticons.png) left 3px no-repeat;
+	padding: 3px 0 3px 18px;
+}
+
+#block-faceted_search_ui-1_guided .item-list li:hover{
+	background-position: left -15px;
+	padding: 3px 0 3px 18px;
+}
+
+
+#block-faceted_search_ui-1_guided .item-list li a {
+	color: #535353;
+}
+
+
+#block-faceted_search_ui-1_guided .item-list li a:hover {
+	color: #DB9D10
+}
+
+.faceted-search-page .item-list {
+	position: absolute;
+	top:20px;
+	right: 30px;
+	width: 260px;	
+}
+
+.faceted-search-page .num_bottom .item-list{
+	right:-260px;
+	top:-5px;
+
+}
+
+.faceted-search-page .item-list ul li a{
+	display: block;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+
+.faceted-search-page .pager-current{
+	display: none;
+}
+
+.faceted-search-page .item-list ul li a:hover{
+	color: #DF9B00;
+}
+
+.faceted-search-page .pager-first {
+	position: absolute;
+	left:-320px;
+}
+
+.faceted-search-page .pager-previous{
+	position: absolute;
+	left:-300px;
+}
+
+
+.faceted-search-page .pager-first a{
+	background: url(../images/pager.png) top left no-repeat;
+	text-indent: -99999px;
+	width: 20px;
+	color: #606060;
+	height: 20px;
+}
+
+.faceted-search-page .pager-last a {
+	background: url(../images/pager.png) right -62px no-repeat;
+	text-indent: -99999px;
+	width: 20px;
+	color: #606060;
+	height: 20px;
+}
+
+.faceted-search-page .pager-last {
+	position: absolute;
+	right:0px;
+}
+
+.faceted-search-page .pager-next{
+	position: absolute;
+	right:20px;
+}
+
+.faceted-search-page .pager-item {
+	display: none;
+}
+
+.faceted-search-page .pager-item a{
+	background-color: #FBFBFB;
+	color: #606060;
+	padding: 4px 4px 5px 4px;
+	margin: 0 2px 0 0;
+}
+
+.faceted-search-page .pager-previous a{
+	background: url(../images/pager.png) left -31px no-repeat;
+	padding: 3px 10px 0 25px;
+	color: #606060;
+	height: 20px;
+}
+
+.faceted-search-page .pager-next a{
+	background: url(../images/pager.png) right -93px no-repeat;
+	padding: 3px 25px 0 10px;
+	color: #606060;
+	height: 20px;
+}
+
+
+.faceted-search-page .faceted-search-numbering {
+	font-size: 10px;
+	color: #A3A3A3;
+}
+
+.faceted-search-page .num_top {
+	position: absolute;
+	top:25px;
+	left: 360px;
+}
+
+.faceted-search-page .num_bottom {
+	position: absolute;
+	bottom:25px;
+	left: 360px;
+}
+
+
+.faceted-search-stage-results .content{
+	font-size: 11px;
+	margin: 20px 0 0 0;
+	line-height: 140%;
+}
+
+.faceted-search-stage-results .content ul li{
+	list-style: circle;
+	list-style-position: inside;
+}

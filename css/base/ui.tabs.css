@@ -1,0 +1,162 @@
+/* Tabs
+----------------------------------*/
+.ui-tabs { zoom: 1; }
+.ui-tabs .ui-tabs-nav { list-style: none; position: relative; }
+.ui-tabs .ui-tabs-nav li { position: relative; float: right; border-bottom-width: 0 !important; padding: 0; }
+.ui-tabs .ui-tabs-nav li a { float: left; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected { padding-bottom: 1px; border-bottom-width: 0; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel {
+	display: block; 
+	border-width: 0; 
+	background: none; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+
+
+
+/******************tags tabs*********************************/
+
+/*#tagtabs .ui-tabs-nav li { 
+	background: url(../../images/tagtabs.png) 0px -55px repeat-x;
+	float: left; 
+	}
+
+
+#tagtabs .ui-tabs-nav li a{ 
+	text-shadow: 1px 1px 0px #eabe33;
+	font-size: 12px;
+	color: #fff;	
+	display: block;
+	padding: 0 0 0 14px;
+}
+
+
+#tagtabs .ui-tabs-nav li a span{ 
+	display: block;
+	padding: 10px 30px 10px 6px;
+}
+
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a{
+	background: url(../../images/tagtabs.png) 0px -379px repeat-x;
+	color: #CBA221;
+	text-shadow: 1px 1px 0px #EBEBEB;
+}
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a span {
+	background: url(../../images/tagtabs.png) right -229px no-repeat;
+	padding-left: 10px;
+}
+
+#tagtabs .ui-tabs-nav li a{ 
+	text-shadow: 1px 1px 0px #eabe33;
+	background: url(../../images/tagtabs.png) 0px 0px no-repeat;
+	font-size: 12px;
+	color: #fff;	
+	display: block;
+	padding: 0 0 0 14px;
+}
+
+#tagtabs .ui-tabs-nav li a span{ 
+	display: block;
+	background: url(../../images/tagtabs.png) right -55px no-repeat;
+	padding: 10px 14px 10px 20px;
+}
+
+#tagtabs .ui-tabs-nav li.first a{ 
+	background: url(../../images/tagtabs.png) 0px -113px no-repeat;
+	padding-left: 10px;
+}
+#tagtabs .ui-tabs-nav li.first a span{
+	padding-left: 14px; 
+}
+
+#tagtabs .ui-tabs-nav li.last a span{ 
+	background: url(../../images/tagtabs.png) right -168px no-repeat;
+	padding-right: 36px;
+}
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a {
+	background: url(../../images/tagtabs.png) 0px -229px no-repeat;
+}
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a span{
+	background: url(../../images/tagtabs.png) right -290px no-repeat;
+}
+
+
+
+/*
+#tagtabs .ui-tabs-nav li a{ 
+	text-shadow: 1px 1px 0px #eabe33;
+	background: url(../../images/tagtabs.png) 0px 0px no-repeat;
+	font-size: 12px;
+	color: #fff;	
+	display: block;
+	padding: 0 0 0 14px;
+}
+
+#tagtabs .ui-tabs-nav li a span{ 
+	display: block;
+	background: url(../../images/tagtabs.png) right -55px no-repeat;
+	padding: 10px 14px 10px 20px;
+}
+
+
+#tagtabs .ui-tabs-nav li.first a{ 
+	background: url(../../images/tagtabs.png) 0px -113px no-repeat;
+	padding-left: 10px;
+}
+
+#tagtabs .ui-tabs-nav li.last a span{ 
+	background: url(../../images/tagtabs.png) right -168px no-repeat;
+	padding-right: 36px;
+}
+
+
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a {
+	background: url(../../images/tagtabs.png) 0px -229px no-repeat;
+}
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a span{
+	background: url(../../images/tagtabs.png) right -290px no-repeat;
+}
+
+
+/*
+#tagtabs .ui-tabs-nav li a {
+}
+
+#tagtabs .ui-tabs-nav li.first a {
+	background: url(../../images/tagtabs.png) 0px -112px no-repeat;
+	padding-left: 14px
+}
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a {
+	background: url(../../images/tagtabs.png) 0px 0px no-repeat;
+	padding-left: 14px;
+	color: #eabe33;
+	text-shadow: 1px 1px 0px #EBEBEB;
+}
+
+#tagtabs .ui-tabs-nav li.ui-tabs-selected a span{
+	background: url(../../images/tagtabs.png) right -54px no-repeat;
+}
+
+#tagtabs .ui-tabs-nav li a span {
+	background: url(../../images/tagtabs.png) right -164px no-repeat;
+	display: block;
+	padding: 10px 20px 10px 0;
+}
+
+#tagtabs .ui-tabs-nav li.last a {
+	padding-right: 0px;
+}
+
+#tagtabs .ui-tabs-nav li.last a span {
+	background: url(../../images/tagtabs.png) right -225px no-repeat;
+}
+
+*/

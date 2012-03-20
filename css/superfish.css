@@ -1,0 +1,239 @@
+
+/*** ESSENTIAL STYLES ***/
+#menu ul.menu, #menu ul.menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+#menu ul.menu {
+	line-height:	1.0;
+}
+#menu ul.menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			170px; /* left offset of submenus need to match (see below) */
+}
+#menu ul.menu ul li {
+	width:			100%;
+}
+#menu ul.menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+#menu ul.menu li {
+	float:			left;
+	position:		relative;
+}
+#menu ul.menu a {
+	display:		block;
+	position:		relative;
+}
+#menu ul.menu li:hover ul,
+#menu ul.menu li.sfHover ul {
+	left:			0;
+	top:			2.5em; /* match top ul list item height */
+	z-index:		102;
+}
+ul#menu ul.menu li:hover li ul,
+ul#menu ul.menu li.sfHover li ul {
+	top:			-999em;
+}
+ul#menu ul.menu li li:hover ul,
+ul#menu ul.menu li li.sfHover ul {
+	left:			170px; /* match ul width */
+	top:			0;
+}
+ul#menu ul.menu li li:hover li ul,
+ul#menu ul.menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul#menu ul.menu li li li:hover ul,
+ul#menu ul.menu li li li.sfHover ul {
+	left:			170px; /* match ul width */
+	top:			0;
+}
+
+
+/************************************************SKIN*****************************************************/
+#menu ul.menu li a {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	text-shadow: 1px 1px #000;
+	color: #a09e9e;
+	font-size: 11px;
+	text-transform: uppercase;
+	display: block;
+	padding: 0px 0px 0px 10px;
+	text-indent: -999999px;
+}
+
+#menu ul.menu li a span {
+	display: block;
+	padding: 14px 10px 17px 0;
+}
+
+#menu ul.menu li a span.men_budget {
+	background: url(../images/toptabs.png) right -85px no-repeat;
+	display: block;
+	padding: 14px 10px 17px 0;
+	width: 42px;
+}
+
+#menu ul.menu li a span.men_destination {
+	background: url(../images/toptabs.png) right -170px no-repeat;
+	display: block;
+	padding: 14px 10px 17px 0;
+	width: 68px;
+}
+
+#menu ul.menu li a span.men_month {
+	background: url(../images/toptabs.png) right -254px no-repeat;
+	display: block;
+	padding: 14px 10px 17px 0;
+	width: 42px;
+}
+
+
+
+#menu ul.menu li a:hover, #menu ul.menu li.sfHover a, #menu ul.menu li.active-trail a {
+	background: url(../images/toptabs.png) 0px 0px no-repeat;
+	color: #fff;
+	cursor: pointer;
+	text-shadow: 1px 1px #A09E9E;
+}
+
+#menu ul.menu li a:hover span.men_budget, #menu ul.menu li.sfHover a span.men_budget, #menu ul.menu li.active-trail a span.men_budget {
+	background: url(../images/toptabs.png) right -128px  no-repeat;
+}
+
+#menu ul.menu li a:hover span.men_destination, #menu ul.menu li.sfHover a span.men_destination, #menu ul.menu li.active-trail a span.men_destination {
+	background: url(../images/toptabs.png) right -212px  no-repeat;
+}
+
+#menu ul.menu li a:hover span.men_month, #menu ul.menu li.sfHover a span.men_month, #menu ul.menu li.active-trail a span.men_month {
+	background: url(../images/toptabs.png) right -297px  no-repeat;
+}
+
+/**************************************submenu********************************************/
+
+
+#menu ul.menu li ul.menu {
+	position: absolute;
+	z-index: 102;
+	margin-top: 2px;
+}
+
+
+#menu ul.menu li ul.menu li a{
+	background: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+#menu ul.menu li ul.menu li a span{
+	background: url(../images/toptabsdrop.png) 0px -20px no-repeat;
+
+	padding: 6px 0 6px 14px;
+	text-shadow: none;
+	color: #5E5B5B;
+	display: block;
+	text-transform: none;
+	font-weight: normal;
+	border-bottom: 1px solid #2F2B2B;
+	border-top: 1px solid #383434;
+	width: 154px;
+	text-indent: 0;
+}
+
+
+#menu ul.menu li ul.menu li a:hover span{
+	background-position: 0px -60px;
+	color: #fff;
+}
+
+
+#menu ul.menu li ul.menu li.last a{
+	background: url(../images/toptabsdrop.png) 0px bottom no-repeat;
+	padding-bottom: 10px;
+	border-bottom: none;
+}
+
+#menu ul.menu li ul.menu li.last a span{
+	background: none;
+}
+
+
+
+#menu ul.menu li ul.menu li.last a:hover span{
+	background: url(../images/toptabsdrop.png) 0px -60px no-repeat;
+}
+
+
+#menu ul.menu li ul.menu li.fake-leaf a span{
+	background: url(../images/toptabsdrop.png) left top no-repeat;
+	display: block;
+	text-indent: -999999px;
+	height: 3px;
+	padding: 0;
+	width: 168px;
+	border-top: none;
+	border-bottom: none;
+}
+
+
+
+/*** arrows **/
+#menu ul.menu a.sf-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.75em;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	background:		url('../images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+#menu ul.menu ul .sf-sub-indicator { background-position:  -10px 0; }
+#menu ul.menu ul a > .sf-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+#menu ul.menu ul a:focus > .sf-sub-indicator,
+#menu ul.menu ul a:hover > .sf-sub-indicator,
+#menu ul.menu ul a:active > .sf-sub-indicator,
+#menu ul.menu ul li:hover > a > .sf-sub-indicator,
+#menu ul.menu ul li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+#menu ul.sf-shadow ul {
+	background:	url('../images/shadow.png') no-repeat right bottom;
+	padding: 0 14px 16px 0;
+/*
+	-moz-border-radius-bottomleft: 17px;
+	-moz-border-radius-topright: 17px;
+	-webkit-border-top-right-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;
+
+*/	
+	
+}
+.sf-shadow ul.sf-shadow-off {
+	background: transparent;
+}

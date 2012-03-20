@@ -1,0 +1,83 @@
+body,td,th {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	color: #292929;
+}
+
+body {
+	background-color: #FFF;
+}
+
+.top {
+background:#DAF0FE;
+}
+.top_down {
+background:#C1E6FD;
+}
+select,textarea {
+background:#E8F7FF;
+border:1px solid;
+}
+.rte {
+}
+
+.border {
+border:1 solid;
+border-color:#D3EDFE;
+}
+.content ul {
+	list-style-type: none;
+	padding:0 0 9px 10px;
+	margin: 0;
+}
+
+.content li {
+	background-image:url(images/icon_list_arrow.gif);
+	background-repeat: no-repeat;
+	background-position:0 7px;
+	padding:0 0 0 8px;
+}
+.red {
+color:#F00;
+}
+.punane {
+	color: #C00;
+}
+.normal{
+background-color: #e1eafe;
+
+}
+.normalon {
+background-color: #FFFFFF;
+}
+
+.eventCalendar td{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    text-align: left;
+    vertical-align: top;
+    background:none repeat scroll 0 0 #C1E6FD;
+    border: 1px solid #fff;
+}
+
+
+.type1{
+    background: #ff0;
+}
+
+.type2{
+    background: #f00;
+}
+
+.type3{
+    background: #f0f;
+}
+
+.type4{
+    background: #0ff;
+}
+
+.type5{
+    background: #0f0;
+}

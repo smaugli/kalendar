@@ -1,0 +1,54 @@
+<h1>New Form</h1>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<a href="profile/organisationprofile">back</a>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"><em>uhiuhuj khiuhkj</em></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile/trainerprofile">MFO INTRANET</a></b></div></td>
+<td class="top"><div align="right"><a href="index/logout">Logout</a></div></td>
+</tr>
+<tr>
+    <td valign="top" style="width:15%">
+       <?php echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId
+         )); ?>
+</td>
+<td valign="top" colspan="3">
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Name: </label></td><td><input type="text" name="name" /></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Add default fields:  </label>
+            </td>
+            <td>
+                <input type="checkbox" name="adddefault" value="1" />
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                <label>Type:  </label>
+            </td>
+            <td>
+               Open: <input type="radio" name="open" checked value="1" />
+               Need Confirmation: <input type="radio" name="open" value="0" />
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create"></td>
+        </tr>
+    </table>
+</form>
+</td>
+</tr>
+</tbody></table>

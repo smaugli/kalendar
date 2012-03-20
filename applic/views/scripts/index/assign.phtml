@@ -1,0 +1,85 @@
+<table bordercolor="#def5fe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody>
+<tr>
+<td width="650" valign="middle" class="top" colspan="2">&nbsp;<b>Taotlemine / registreerimine</b></td>
+</tr>
+<p><a href="index"><- tagasi</a></p>
+<tr>
+    <td colspan="2">
+        <?php  if(isset($this->message)){echo "<font color='green' size='5px'>".$this->message."</font>";} ?>
+        <?php  if(isset($this->messageform)){echo "<font color='green' size='5px'>".$this->messageform."</font>";} ?>
+        <form action="" method="post">
+         <table border="1" width="100%" align="center">
+
+                <?php
+
+                if($this->assignType == 1){
+
+                if(count($this->formElements) > 0){
+
+                    foreach($this->formElements as $element){
+
+                        ?>
+                    <tr>
+
+                        <td>
+                            <?php echo $element['label'] ?>
+                        </td>
+                        <td>
+                            <?php
+                            
+                           
+                            if($element['formType'] == 'select'){
+                             
+                             
+                                if(isset($element['option']) && !empty($element['option'])){
+                                    ?>
+
+                            <select name="field[<?php echo $element['id']?>]">
+                            <?php
+                                    foreach($element['option'] as $item){
+                                    ?>
+                                <option value="<?php echo $item['optionId']?>"><?php echo $item['options']?></option>
+                                    <?php }?>
+                                    </select>
+                                    <?php
+                                    }
+                                ?>
+
+                          
+
+
+                            <?php
+                            }elseif($element['formType'] == 'text'){
+                                echo "<input type='text' name='field[".$element['id']."]' />";
+                            }else{
+                                echo "<textarea name='field[".$element['id']."]'></textarea>";
+
+                            }
+                             ?>
+                    
+                        </td>
+                        <?php }?>
+                        <tr>
+                        <td colspan="2"><input type="submit" value="Saada" /></td>
+                    </tr>
+                    </tr>
+                <?php }
+                }elseif ($this->assignType == 2) {
+                    ?>
+                  <a href="img/forms/<?php echo $this->link ?>"><?php echo $this->link ?></a>
+                    <?php
+                   
+                }elseif ($this->assignType == 3) {
+                    ?>
+                  <a href="<?php echo $this->linkapply ?>"><?php echo $this->linkapply ?></a>
+                    <?php
+
+                }
+                ?>
+                    
+            </table>
+        </form>
+    </td>
+</tr>
+</tbody></table>

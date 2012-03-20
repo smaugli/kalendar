@@ -1,0 +1,313 @@
+<script>
+    $(document).ready(function(){
+        $( ".datepicker" ).datepicker();
+        $('.adddate').click(function(){
+
+            $('.dateStack').append('<tr><td><p><input class="datepicker" name="date[]" type="text" style="display: none;"><input type="text" name="location[]" /><a href="#" class="removeItem">Kustuta</a></p></td></tr>');
+
+            $( ".datepicker" ).datepicker();
+
+
+            $('.removeItem').click(function(){
+                $(this).parent('p').parent('td').parent('tr').remove();
+                return false;
+            });
+
+            return false;
+
+        });
+
+        $('.addfile').click(function(){
+
+            $('.fileStack').append('<p><input type="file" name="file[]"/>&nbsp;<a href="#" class="removeItem">&nbsp;Kustuta</a></p>');
+
+            $('.removeItem').click(function(){
+                $(this).parent('p').remove();
+                return false;
+            });
+
+            return false;
+
+        });
+
+
+        $('.assignForm').click(function(){
+            $('.assignFormI').attr('disabled', '');
+            $('.assignUploadI').attr('disabled', 'disabled');
+            $('.assignLinkI').attr('disabled', 'disabled');
+
+        });
+
+        $('.assignUpload').click(function(){
+            $('.assignUploadI').attr('disabled', '');
+            $('.assignFormI').attr('disabled', 'disabled');
+            $('.assignLinkI').attr('disabled', 'disabled');
+        });
+
+        $('.assignLink').click(function(){
+            $('.assignLinkI').attr('disabled', '');
+            $('.assignFormI').attr('disabled', 'disabled');
+            $('.assignFormI').attr('disabled', 'disabled');
+        });
+
+
+    });
+
+</script>
+<h2>Muuda koolitust</h2>
+
+<a href="admin/events"><- tagasi</a>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi vĆ¤lja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%" colspan="4">
+<form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Pealkiri: </label></td><td><input type="text" name="title" value="<?php echo @$this->data['title'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Komadega eraldatud mĆ¤rksĆµnad:<br /><small>(millest koolitusel rĆ¤Ć¤gitakse)</label></td><td><input type="text" name="keywords" value="<?php echo @$this->data['keywords'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Koolitustegevuse Ć¼levaade: </label></td><td>
+                <textarea name="description" style="width:380px;height:155px;" class="rte"><?php echo @$this->data['description'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Pisem pildike/logo: </label></td><td> <input type="file" name="logo" />&nbsp;<img src="img/events/<?php echo @$this->data['logo']?>" style="width:50px;"  alt="" /></td>
+        </tr>
+    <!--   <tr>
+           <td> <label>Koolitustegevuse vorm: </label></td>
+           <td>
+               <select name="type">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select>
+           </td>
+        </tr>-->
+        <tr>
+            <td valign="top">Toimumisaeg ja koht *</td>
+            <td>
+                <table cellpadding="0" cellspacing="0" class="dateStack">
+                    <tr>
+                        <td><?php foreach ($this->data1 as $value) { ?>
+                                <p>
+                                    <input class="datepicker" name="date[]" type="text" value="<?php echo @$value['date'] ?>" style="display: none;">
+                                    <input type="text" name="location[]" value="<?php echo @$value['location'] ?>"/>
+                                </p>
+                            <?php } ?>
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                    <a href="#" class="adddate">+</a>&nbsp;klikka, et lisada mitu kuupĆ¤eva
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="#" style="font-weight: bold; font-size: 20px;" class="adddate">+</a><small>(lisa kuupĆ¤ev/asukoht)</small>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Hind: </td>
+            <td><input type="text" name="price" value="<?php echo @$this->data['price'] ?>" class="price" />Tasuta<input type="checkbox" <?php if($this->data['price'] == 0){echo "Checked";}?> name="free"></td>
+        </tr>
+
+
+        <tr>
+            <td>Taotlus-/registreerimistĆ¤htaeg: </td>
+            <td><input type="text" id="datepicker2" value="<?php echo @$this->data['deadline'] ?>" name="deadline"  /></td>
+        </tr>
+
+        <tr>
+            <td><label>TĆ¶Ć¶keel: </label></td>
+            <td>
+                <?php
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+                ?>
+               <?php echo $language['name']; ?> <input type="checkbox" value="<?php echo $language['id']; ?>" name="language[<?php echo $language['id']; ?>]" />
+                <?php } } ?>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>Sektor: </td>
+            <td>
+                <select name="sector">
+                     <?php
+                        if(count($this->sectors) > 0){
+                        foreach($this->sectors as $sector){
+                    ?>
+                    <option value="<?php echo $sector['id'] ?>" ><?php echo $sector['name'] ?></option>
+                    <?php } } ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Viide koolitusele veebis: </td>
+            <td><input type="text" name="tUrl" value="<?php echo @$this->data['tUrl'] ?>"  /></td>
+        </tr>
+
+        <tr>
+            <td>Grupi suurus: </td>
+            <td><input type="text" value="<?php echo @$this->data['size'] ?>" name="size" value=""  /></td>
+        </tr>
+        <?php
+
+        if($this->type == 1){
+        ?>
+        <tr>
+            <td>Vali organisatsioon(id): </td>
+            <td>
+                <select multiple size="3" name="organisations[]">
+                <?php
+                if(count($this->list) > 0){
+                    foreach ($this->list as $list){
+                      if(in_array($list['id'], $this->data['organisationsevent'])){
+                            $selectedorg = "selected";
+
+                            }else{
+                                $selectedorg = "";
+                            }
+
+                        ?>
+                    <option value="<?php echo $list['id']; ?>" <?php echo $selectedorg; ?>><?php echo $list['name']; ?></option>
+                        <?php
+                    }
+
+                }
+                ?>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="index/organization">Kui organisatsiooni pole valikute seas,<br /> siis registreeri oma organisatioon siin</a>
+            </td>
+
+        </tr>
+        <?php }else{ ?>
+        <tr>
+            <td>Koolitaja(d): </td>
+            <td>
+                <select multiple size="3" name="teachers[]">
+                <?php
+
+                if(count($this->list) > 0){
+                    foreach ($this->list as $list){
+                        if(in_array($list['id'], $this->data['teachersevent'])){
+                            $selectedorg = "selected";
+
+                            }else{
+                                $selectedorg = "";
+                            }
+                        ?>
+                    <option value="<?php echo $list['id']; ?>" <?php echo $selectedorg; ?>><?php echo $list['name']; ?></option>
+                        <?php
+                    }
+                } ?>
+                </select>
+            </td>
+        </tr>
+        <?php } ?>
+        <tr>
+            <td>EttevĆµtmise ulatus: </td>
+            <td>
+                <select name="coverage">
+		<option>vali siit</option>
+                    <option>Kohalik</option>
+                    <option>Ć�leriigiline</option>
+                    <option>Rahvusvaheline</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>PĆµhjalikum lisainfo koolituse kohta: </label>
+            </td>
+            <td>
+                <div class="fileStack">
+                    <?php foreach ($this->files as $value) { ?>
+                          <p><a href="<?php echo 'img/events/'.@$value['attachment'] ?>" tagret="_blank"><?php echo @$value['attachment'] ?></a></p>
+                    <?php } ?>
+                    <p><input type="file" name="file[]"/></p>
+                </div>
+                <div><a href="#" class="addfile">+</a>&nbsp;Lisa more file</sub></div>
+            </td>
+        </tr>
+              <tr>
+            <td > <label>Kuidas koolitusele registreeruda?<br /><small>(vali rippmenĆ¼Ć¼st registreerumisvorm, lae<br /> vormi fail vĆµi lisa link vĆ¤lisele vormile)</small> </label></td><td>
+                Online vorm (parim valik): <input type="radio" checked value="1" name="assignType" class="assignForm" /><select name="assign[formId]" class="assignFormI">
+                    <?php
+
+                    if(count($this->formList) > 0){
+                        echo "<option></option>";
+                        foreach($this->formList as $formItem){
+                            ?>
+                        <option value="<?php echo $formItem['id']?>"><?php
+
+                        echo $formItem['name']; ?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                    </select><br />
+                    Lae vorm Ć¼les (nt. PDF):  <input type="radio" value="2" name="assignType" class="assignUpload"  /><input type="file" class="assignUploadI" name="assign" disabled /><br />
+                Link vĆ¤lisele registreerumislehele: <input type="radio" value="3" name="assignType" class="assignLink" /><input type="text" class="assignLinkI" name="assign[assignLink]" disabled /><br />
+                <div class="assignContent">
+
+                </div>
+                <div class="assignForm">
+
+
+                </div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td> <label>Kontaktinfo lisainfo saamiseks: </label></td><td>
+                <textarea name="contacts" class="rte"><?php echo @$this->data['contacts'] ?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>TĆ¤iendav teave:</label></td><td>
+                <input type="text" name="additionalInfo" value="<?php echo @$this->data['additionalInfo'] ?>"  />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="Salvesta muudatused" />
+            <input type="reset" value="reset" /></td>
+        </tr>
+
+    </table>
+</form>
+    </td>
+</tr>
+</tbody>

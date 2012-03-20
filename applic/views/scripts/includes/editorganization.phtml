@@ -1,0 +1,40 @@
+<h2>Muuda oma andmeid</h2>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+<a href="profile"><- tagasi</a>
+
+<form action="profile/editorganization" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Kasutajanimi: </label></td><td><input type="text" name="username" value="<?php echo @$this->data['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Email: </label></td><td><input type="text" name="email" value="<?php echo @$this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Organisatsiooni nimi: </label></td><td><input type="text" name="name" value="<?php echo @$this->data['name'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Aadress: </label></td><td><input type="text" name="address" value="<?php echo @$this->data['address'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Telefon: </label></td><td><input type="text" name="phone" value="<?php echo @$this->data['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Veebi aadress: </label></td><td><input type="text" name="website" value="<?php echo @$this->data['website'] ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Logo: </label></td><td> <input type="file" name="logo" /><img src="img/organizations/<?php echo @$this->data['logo']?>" style="width:50px;" alt="" /></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><input type="submit" value="Salvesta" />
+</td>
+        </tr>
+    </table>
+</form>

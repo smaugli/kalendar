@@ -1,0 +1,54 @@
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+       <?php
+
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3"><form action="profile/form/add" method="post" enctype="multipart/form-data">
+<h2>Registreerumisvormid</h2>
+<a href="profile/newform">Loo uus registreerumisvorm</a><br /><br />
+    <table>
+          <tr>
+                <td>
+                    <u><b>Vormi nimi</b>&nbsp;&nbsp;&nbsp;</u>
+                </td>
+                <td align="center">
+                    <u><b>Kustuta</b></u>
+                </td>
+           </tr>
+	<?php
+        if(count($this->records) > 0){
+            foreach($this->records as $record){
+
+        ?>
+          <tr>
+                <td>
+                    <a href="form/edit/<?php echo $record['id'];?>"><?php echo $record['name'];?></a>
+                </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="form/delete/<?php echo $record['id'];?>">X</a>
+                </td>
+           </tr>
+           <?php } }?>
+    </table>
+</form>
+</td>
+</tr>
+</tbody></table>

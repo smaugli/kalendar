@@ -1,0 +1,152 @@
+<script>
+    $(document).ready(function(){
+        $( ".datepicker" ).datepicker();
+
+        $('.adddate').click(function(){
+
+
+
+            $('.dateStack').append('<tr>                        <td>                            <p><input class="datepicker" name="date[]" type="text"> Location: <input type="text" name="location[]" /><a href="#" class="removeItem">Remove</a> </p>                       </td>                    </tr>');
+
+            $( ".datepicker" ).datepicker();
+
+
+            $('.removeItem').click(function(){
+                $(this).parent('p').parent('td').parent('tr').remove();
+                return false;
+            });
+
+            return false;
+
+        });
+
+        $('.assignForm').click(function(){
+            $('.assignFormI').attr('disabled', '');
+            $('.assignUploadI').attr('disabled', 'disabled');
+            $('.assignLinkI').attr('disabled', 'disabled');
+
+        });
+
+        $('.assignUpload').click(function(){
+            $('.assignUploadI').attr('disabled', '');
+            $('.assignFormI').attr('disabled', 'disabled');
+            $('.assignLinkI').attr('disabled', 'disabled');
+        });
+
+        $('.assignLink').click(function(){
+            $('.assignLinkI').attr('disabled', '');
+            $('.assignFormI').attr('disabled', 'disabled');
+            $('.assignFormI').attr('disabled', 'disabled');
+        });
+
+
+    });
+</script>
+
+<h1>Contest a seat as a trainer  </h1>
+<a href="profile/contests">back</a>
+<?php
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"><?php echo "Tere, "; ?>! <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%" colspan="4">
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="<?php echo $this->id; ?>" name="id">
+    <table>
+        <tr>
+            <td><label>Title of a training event:</label></td><td><input type="text" name="title" value="<?php echo $this->data['title']?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Organiser of the event : </label></td><td><input type="text" name="organiser" value="<?php echo $this->data['organiser']?>" /></td>
+        </tr>
+         <tr>
+            <td><label>Organiserâ€™s e-mail : </label></td><td><input type="text" name="email" value="<?php echo $this->data['email']?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Training events details : </label></td><td>
+                <textarea name="details"><?php echo $this->data['details']?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td> <label>Add a file: </label></td><td> <input type="file" name="contest_file" /> file description  : <input type="text" name="contest_description" value="<?php echo $this->data['contest_description']?>" /></td>
+        </tr>
+         <tr>
+            <td>Link & link description : </td>
+            <td><input type="text" name="contest_link" value="<?php echo $this->data['contest_link']?>"  /> link description: <input type="text" name="link_description" value="<?php echo $this->data['link_description']?>" /></td>
+        </tr>
+      <tr>
+            <td><label>Terms for apply  : </label></td><td>
+                <textarea name="terms"><?php echo $this->data['terms']?></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td> <p><input id="datepicker" value="<?php echo $this->data['date']?>" name="date" type="text"> Location: <input type="text" name="location" value="<?php echo $this->data['location']?>" /></p></td>
+        </tr>
+
+        <tr>
+            <td><label>Languages: </label></td>
+            <td>
+                <?php
+                $larray = explode(',', $this->data['languages']);
+
+                if(count($this->languages) > 0){
+                    foreach($this->languages as $language){
+                ?>
+               <?php echo $language['name']; ?> <input type="checkbox" value="<?php echo $language['id']; ?>" <?php if(in_array( $language['id'], $larray)){echo "Checked";}?> name="language[<?php echo $language['id']; ?>]" />
+                <?php } } ?>
+
+            </td>
+        </tr>
+              <tr>
+            <td > <label>Assign Type  : </label></td><td>
+                Online form : <input type="radio" checked value="1" name="assignType" class="assignForm" /><select name="assign[formId]" class="assignFormI">
+                    <?php
+
+                    if(count($this->formList) > 0){
+                        echo "<option></option>";
+                        foreach($this->formList as $formItem){
+                            ?>
+                        <option value="<?php echo $formItem['id']?>"><?php
+
+                        echo $formItem['name']; ?></option>
+                        <?php
+                        }
+                    }
+                    ?>
+                    </select><br />
+                    Upload apply form:  <input type="radio" value="2" name="assignType" class="assignUpload"  /><input type="file" class="assignUploadI" name="assign" disabled /><br />
+                Add link to the aplly: <input type="radio" value="3" name="assignType" class="assignLink" /><input type="text" class="assignLinkI" name="assign[assignLink]" disabled /><br />
+                <div class="assignContent">
+
+                </div>
+                <div class="assignForm">
+
+
+                </div>
+
+            </td>
+        </tr>
+       
+        <tr>
+            <td colspan="2"><input type="submit" value="register" />
+    <input type="reset" value="reset" /></td>
+        </tr>
+  
+    </table>
+</form>
+    </td>
+</tr>
+</tbody>

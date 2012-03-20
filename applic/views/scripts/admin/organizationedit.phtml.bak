@@ -1,0 +1,73 @@
+<?php
+
+//var_dump($this->userInfo);
+//exit;
+
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+<tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+</tr>
+
+<tr>
+    <td valign="top" style="width:15%">
+
+       <?php
+       echo $this->partial('includes/leftmenu.phtml', array(
+             "typeId" => $this->typeId,
+             "level" => $this->level
+         )); ?>
+    </td><td valign="top" colspan="3" style="text-transform: capitalize">
+        <h2><?php echo $this->title; ?></h2>
+       <form action="" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td><label>Username: </label></td><td><input type="text" name="username" value="<?php echo @$this->data['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>E-mail: </label></td><td><input type="text" name="email" value="<?php echo @$this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Name of the organisation : </label></td><td><input type="text" name="name" value="<?php echo @$this->data['name'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Address: </label></td><td><input type="text" name="address" value="<?php echo @$this->data['address'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Phone : </label></td><td><input type="text" name="phone" value="<?php echo @$this->data['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Website : </label></td><td><input type="text" name="website" value="<?php echo @$this->data['website'] ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Logo  : </label></td><td> <input type="file" name="logo" /><img src="img/organizations/<?php echo @$this->data['logo']?>" style="width:50px;" alt="" /></td>
+        </tr>
+        <tr>
+            <td> <label>Contest : </label></td><td><?php if(@$this->data['level'] == 1){?>
+                <a href="admin/contestapprove/<?php echo @$this->data['id']; ?>">Can add contest</a>
+            <?php }elseif(@$this->data['level'] == 0){?>
+                <a href="admin/contestnotapprove/<?php echo @$this->data['id']; ?>">Can`t add contest</a>
+           <?php }
+            ?></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type="submit" value="save" />
+            <input type="reset" value="reset" /></td>
+        </tr>
+    </table>
+</form>
+
+
+</td>
+</tr>
+</tbody></table>

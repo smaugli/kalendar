@@ -1,0 +1,224 @@
+<div id="header">
+</div>
+
+<div id="event-content" class="clearfix">
+    <div id="left-side">
+        <a href="javascript:history.go(-1)" class="back"><-tagasi</a>
+<br /><br />
+        <h1><?php
+    if ($this->user['type'] == '1') { ?>
+       Koolitaja <?php echo @$this->data['name'] . ' ' . @$this->data['surname']; ?> profiil
+    <?php } elseif ( $this->user['type'] == '2' ){ ?>
+        Organisatsiooni <?php echo @$this->data['name'] ?> profiil
+    <?php }?></h1>
+ 
+ <div id="subtitle"><a href="<?php echo @$this->data['website']?>" target="_blank"><?php echo @$this->data['website']?></a></div>
+
+<?php
+//var_dump($this->user);exit;
+//echo '<pre>'; print_r(@$this->data['languages']); echo '</pre>';
+//echo '<pre>'; print_r(@$this->languages); echo '</pre>';
+if(count($this->error) > 0 && is_array($this->error)){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+    <?php } }?>
+<?php
+//var_dump(file_exists('img/trainers/' . @$this->data['photo']));
+if(@$this->user['type'] == 1 && $this->data['photo'] && file_exists('img/trainers/' . @$this->data['photo'])){?>
+<!--<div id="user_photo" style="position: absolute;top: 91px;left: 345px;">-->
+<div id="user_photo" style="float: right">
+    <img src="img/trainers/<?php echo @$this->data['photo'];?>" style='width:100px;' alt='' />
+</div>
+<?php } ?>
+
+
+
+     <br /> 
+        <div id="txt1"><?php echo @$this->training_info['description'] ?> </div><br />
+
+        <div id="txt2">
+            <p><b>Email:</b> <a href="mailto:<?php echo @$this->data['email'] ?>"><?php echo @$this->data['email'] ?></a></p>
+            <p><b>Aadress:</b> <?php echo @$this->data['address'] ?></p>
+
+            <?php if (@$this->data['publicPhone']) {?>
+	    <p><b>Telefon:</b> <?php echo @$this->data['phone'] ?></p>
+	    <?php }?>
+
+	    <?php if(@$this->user['type'] == 1) {?>
+            <p><b>Asukoht:</b> <?php echo $this->country['name']; ?></p>
+	    <?php } ?>
+
+            <p><b>Skype:</b> <a href="skype:<?php echo @$this->data['skype'] ?>?chat"><?php echo @$this->data['skype'] ?></a></p>
+	     <p><b>LinkedIN:</b> <a href="<?php echo @$this->data['linkedIn']?>" target=\"_blank\"><?php echo @$this->data['linkedIn']?></a></p>
+	      <p><b>Twitter:</b> <a href="<?php echo @$this->data['twitter'] ?>" target="_blank"><?php echo @$this->data['twitter'] ?></a></p>
+
+	    <?php if(@$this->user['type'] == 1){ echo"
+             <p><b>Organisatsioon:</b> ".$this->org['name']."</p>
+	     "; } ?>
+
+          <p><b>Teemad:</b></p>
+            <?php
+//                var_dump($this->topics);exit;
+            if(count(@$this->topics) > 0){
+                ?>
+                <ul>
+                    <?php
+                    foreach(@$this->topics as $topic){
+                        $checked = '';
+                         foreach (@$this->topic as $value) {
+        //                                     $value = 'topic'.$value;
+                             if($topic['id'] == $value){
+                                $checked = "checked"; ?>
+                                <li>
+                                    <?php echo $topic['name']; ?>
+                                </li>
+                             <?php
+                             }
+                        }
+
+                    ?>
+<!--                        <li>
+                            <?php echo $topic['name']; ?><input disabled="disabled" type="checkbox" <?php echo $checked ?> name="topics[<?php echo $topic['id']; ?>]" value="<?php echo $topic['id']; ?>" />
+                        </li>-->
+                        <?php
+                        $checke = '';
+                        if(isset($topic['children']) && count($topic['children']) > 0){
+//                            echo "<ul>";
+                            foreach($topic['children'] as $child){
+                                foreach (@$this->topic as $value) {
+    //                            echo $child['id'];exit;
+    //                                     $value = 'topic'.$value;
+                                     if($child['id'] == $value){
+                                         $checke = "checked"; ?>
+                                         <li><?php echo $child['name']; ?>
+                                            <?php //} echo "</ul>"; }?>
+                                        </li>
+                                <?php
+                                     }
+                                }
+                            }
+                        }
+
+                        ?>
+<!--                        <li><?php echo $child['name']; ?><input disabled="disabled" <?php echo $checke ?> type="checkbox"  name="topics[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>
+                            <?php //} echo "</ul>"; }?>
+                        </li>-->
+                    <?php
+                    }
+                    ?>
+                </ul>
+            <?php
+            } ?>
+	    <!-- ************** TEEMAD END -->
+
+
+            <p><b>Sihtgrupid:</b> 
+           <?php
+//                var_dump($this->targets);exit;
+            if(count(@$this->targets) > 0){
+                ?>
+<!--                <ul>-->
+            <?php
+
+                foreach(@$this->targets as $target){
+                    $checked = '';
+                     foreach (@$this->target as $value) {
+//                                     $value = 'target'.$value;
+                         if($target['id'] == $value){
+                             $checked = "checked";?>
+                             <li><?php echo $target['name']; ?></li>
+                         <?php
+                         }
+                    }
+
+            ?>
+<!--                <li><?php echo $target['name']; ?><input disabled="disabled" type="checkbox" <?php echo $checked ?> name="targets[<?php echo $target['id']; ?>]" value="<?php echo $target['id']; ?>" /></li>-->
+                <?php
+                $checke = '';
+                if(isset($target['children']) && count($target['children']) > 0){
+//                    echo "<ul>";
+                    foreach($target['children'] as $child){
+                        foreach (@$this->target as $value) {
+//                            echo $child['id'];exit;
+//                                     $value = 'target'.$value;
+                             if($child['id'] == $value){
+                                     $checke = "checked"; ?>
+                                     <li><?php echo $child['name']; ?></li>
+                             <?php
+                             }
+                        }
+                    }
+                }
+                ?>
+<!--                <li><?php echo $child['name']; ?><input disabled="disabled" checked="<?php echo $checke ?>" type="checkbox"  name="targets[<?php echo $child['id']; ?>]" value="<?php echo $child['id']; ?>" /></li>-->
+                    <?php //} echo "</ul>"; }?>
+
+            <?php }
+            ?>
+<!--                </ul>-->
+            <?php
+            } ?>
+</p> <!-- ************* SIHTGRUPID END-->
+
+
+            <p><b>Olulisemad senised koolitamiskogemused: </b> 
+    <input type="hidden" name="experience[0][type]" value="1" />
+                    <table>
+
+                        <?php
+                        foreach (@$this->exp as $key => $value) {
+
+                         ?>
+                        <tr>
+                            <td>Põhiandmed:</td><td><p><?php echo $value['description']; ?></p></td>
+                        </tr>
+                             <td>Sisu:</td><td><p><?php echo $value['content']; ?></p></td>
+                        </tr>
+                        <tr>
+                             <td>Miks see on oluline kogemus:</td><td><p><?php echo $value['important']; ?></p></td>
+			     <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        </tr>
+                        <?php } ?>
+                    </table>
+
+
+</p><!-- ****************** KOOLITAMISKOGEMUSED END-->
+           	    
+	    <p><b>Mida väärtustad koolitustegevusejuures:</b> ?php echo @$this->training_info['aboutTeaching'] ?></p>
+	    <p><b>Kuidas iseloomustad end koolitajana:</b> <?php echo @$this->training_info['about'] ?></p>
+	    <p><b>Olulisim professionaalne ettevalmistus koolitajaks:</b> <?php echo @$this->training_info['professionalTrainings'] ?></p>
+	    <p><b>Millistel teemadel, sihtgruppide lõikes jne oled huvitatud enesetäiendusest:</b> <?php echo @$this->training_info['interests'] ?></p>
+	    <p><b>Huvi ESF raames tegutsemiseks:</b> <?php echo @$this->training_info['ESF'] ?></p>
+
+            <a href="javascript:history.go(-1)" class="back_bot"><-tagasi</a>
+        </div>
+
+    </div>
+    <div id="right-side">
+
+        <?php
+    if ($this->user['type'] == '2') { ?>
+	<div id='pic'>
+            <img src='img/organizations/".@$this->data['logo']."' style='width:200px;' align='right' alt='' />
+        </div>
+    <?php }?>
+	
+    </div>
+</div>
+<!--I have started content upto here -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.openform').toggle(function(){
+            $('.emailForm').fadeIn(500);
+            return false;
+        },
+        function(){
+            $('.emailForm').fadeOut(500);
+            return false;
+        }
+    );
+    });
+</script>

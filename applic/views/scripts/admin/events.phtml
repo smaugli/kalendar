@@ -1,0 +1,145 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.openform').toggle(function(){
+            $('.emailForm').fadeIn(500);
+            return false;
+        },
+            function(){
+                $('.emailForm').fadeOut(500);
+                return false;
+            }
+    	);
+
+    });
+
+    function showEmailForm(id) {
+		$('#emailForm' + id + '').toggle();
+    }
+</script>
+
+<?php
+
+if(count($this->error) > 0) {
+   
+    foreach($this->error as $error) {
+        var_Dump($error);
+        echo "<br />";
+        ?>
+
+        <?php }
+         
+}
+?>
+
+<table height="350" bordercolor="#d3edfe" border="1" align="center" width="676" style="border-collapse: collapse;">
+    <tbody><tr>
+<td height="19" class="top"><div align="left"> <small>(<a href="index/logout">Logi välja</a>)</small></div></td>
+<td colspan="2" class="top"><div align="center"><b><a href="profile">KOOLITUSKALENDRI ARMATUURLAUD</a></b></div></td>
+<td class="top"><div align="right">&nbsp;</div></td>
+        </tr>
+
+        <tr>
+            <td valign="top" style="width:15%">
+                <?php
+
+                echo $this->partial('includes/leftmenu.phtml', array(
+                "typeId" => $this->typeId,
+"level" => $this->level
+)); ?>
+            </td><td valign="top" colspan="3">
+              <p><a href="<?php echo ROOT_URL?>profile/trainingadd">Lisa uus koolitus</a></p>
+		<table cellspacing="2" cellpadding="2">
+                    <thead>
+                        <tr>
+                            <td><u><b>Pealkiri</u></b></td>
+                            <td><u><b>Logo</u></b></td>
+                            <td><u><b>Tähtaeg</u></b></td>
+                            <td><u><b>Staatus</u></b></td>
+                            <td><b><u>Kustuta</u></b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3"><strong>Tulevad koolitused</strong></td>
+                        </tr>
+                        <?php
+foreach($this->itemsnew as $item) {
+    ?>
+                        <tr>
+                            <td> <a href="admin/eventedit/<?php echo $item['id']?>"><?php echo $item['title']?></a></td>
+                            <td> <a href="admin/eventedit/<?php echo $item['id']?>"><img src="img/events/<?php echo $item['logo']?>" style="width:30px;margin:5px;border:0px;" alt="" /></a></td>
+
+                            <td><?php echo date("Y-m-d",strtotime($item['deadline'])); ?></td>
+                            <td><?php
+                            if($item['published'] == '0'){
+                                ?>
+                               <a href="admin/approve/<?php echo $item['id']; ?>">Aktiveeri</a>
+                                <?php
+                            }else{
+                            ?>
+<!--                               <a href="admin/notapprove/<?php echo $item['id']; ?>">Deaktiveeri</a>-->
+                               <a href="javascript:;" onclick="showEmailForm(<?php echo $item['id']; ?>);">Deaktiveeri</a>
+                <form id="emailForm<?php echo $item['id']; ?>" action="admin/notapprove/<?php echo $item['id']; ?>" style="display: none; position: absolute; margin-left: -450px; background: #fff" class="emailForm" method="post">
+                <table>
+                    <tbody><tr>
+                        
+                        <td width="200"><textarea name="email" rows="3" cols="25" value="Põhjus, miks deaktiveerid"></textarea></td>
+                        <td colspan="2" class="top"><center><input type="submit" value="Saada" name="submit"></center></td>
+                        </tr>
+                        
+                        </tbody>
+                </table>
+            </form>
+                            <?php }?>
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="return confirm('Oled kindel, et soovid kustutada?');" href="profile/eventremove/<?php echo $item['id']?>">X</a></td>
+                            
+                        </tr>
+
+                            <?php
+}
+?>
+                        <tr>
+                            <td colspan="3"><strong>Möödunud koolitused</strong></td>
+                        </tr>
+                        <?php
+foreach($this->itemsold as $item) {
+    ?>
+                        <tr>
+                            <td> <a href="admin/eventedit/<?php echo $item['id']?>"><?php echo $item['title']?></a></td>
+                            <td> <a href="admin/eventedit/<?php echo $item['id']?>"><img src="img/events/<?php echo $item['logo']?>" style="width:30px;margin:5px;border:0px;" alt="" /></a></td>
+
+                            <td><?php echo date("Y-m-d",strtotime($item['deadline'])); ?></td>
+                            <td><?php
+                            if($item['published'] == '0'){
+                                ?>
+                                <a href="admin/approve/<?php echo $item['id']; ?>"> Aktiveeri</a>
+                                <?php
+                            }else{
+                            ?>
+<!--                                <a href="admin/notapprove/<?php echo $item['id']; ?>">Aktiveeritud</a>-->
+								<a href="javascript:;" onclick="showEmailForm(<?php echo $item['id']; ?>);">Deaktiveeri</a>
+                <form id="emailForm<?php echo $item['id']; ?>" action="admin/notapprove/<?php echo $item['id']; ?>" style="display: none; position: absolute; margin-left: -450px; background: #fff" class="emailForm" method="post">
+                <table>
+                    <tbody><tr>
+
+                        <td width="200"><textarea name="email" rows="3" cols="25"></textarea></td>
+                        <td colspan="2" class="top"><center><input type="submit" value="Saada" name="submit"></center></td>
+                        </tr>
+
+                        </tbody>
+                </table>
+                 </form>
+                            <?php }?>
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="return confirm('Oled kindel, et soovid kustutada?');" href="profile/eventremove/<?php echo $item['id']?>">X</a></td>
+                        </tr>
+
+                            <?php
+}
+?>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody></table>

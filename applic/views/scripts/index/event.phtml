@@ -1,0 +1,154 @@
+
+<div id="header">
+</div>
+
+<div id="event-content" class="clearfix">
+    <div id="left-side">
+        <a href="javascript:history.go(-1)" class="back"><-tagasi</a>
+        <h1><?php echo $this->event['title']; ?></h1>
+        <div id="subtitle">Koolituse autor:<a href="user/<?php echo $this->event['username']; ?>"><?php echo $this->event['username']; ?></a></div>
+        <div id="txt1"><?php echo $this->event['description']; ?>
+            <?php //var_dump($this->event);?>
+        </div>
+
+        <div id="txt2">
+            <p><b>Märksõnad:</b>     <?php
+            echo $this->event['keywords'];
+            ?></p>
+            <p><b>Koolitustegevuse vorm:</b> <?php
+                echo $this->event['event_type'];
+            ?></p>
+            <p><b>Kuupäevad ja toimumiskohad:</b></p>
+            <?php
+            setlocale(LC_ALL, 'et_EE.UTF-8', 'et_EE', 'et', 'ee');
+            foreach ($this->data1 as $value) {
+                ?>
+                <li><?php echo strftime("%A, %d. %B %Y", strtotime(@$value['date'])); ?>&nbsp; - &nbsp;
+                    <?php echo @$value['location']; ?>
+                </li>
+            <?php }
+            ?>
+            <p><b>Hind:</b> &euro; <?php echo $this->event['price']; ?></p>
+            <p><b>Taotlus- ja registreerimistähtaeg:</b> <?php echo strftime("%d. %B %Y (%A)", strtotime($this->event['deadline'])); ?></p>
+            <p><b>Viide koolitusele veebis:</b>     <?php
+            echo "<a href=\"" . $this->event['tUrl'] . "\" target=\"_blank\">" . $this->event['tUrl'] . "</a>";
+            ?></p>
+<!--            <p><b>Sektor: </b>
+                <?php
+                echo $this->event['sector'];
+                ?></p>-->
+            <p><b>Töökeel(ed): </b> 
+                <?php
+                $langIds = explode(",", $this->event['languages']);
+                //print_r($langIds);
+
+                if (!empty($langIds) && is_array($langIds)) {
+                    $langsStr = '';
+                    foreach ($langIds as $k => $v) {
+                        $found = 0;
+                        switch ($v) {
+                            case 1:
+                                if ($langsStr != '')
+                                    echo ', ';
+                                echo "inglise";
+                                $found = 1;
+                                $langsStr = 1;
+                                break;
+                            case 2:
+                                if ($langsStr != '')
+                                    echo ', ';
+                                echo "vene";
+                                $found = 1;
+                                $langsStr = 1;
+                                break;
+
+                            case 3:
+                                if ($langsStr != '')
+                                    echo ', ';
+                                echo "eesti";
+                                $found = 1;
+                                $langsStr = 1;
+                                break;
+                            case 4:
+                                if ($langsStr != '')
+                                    echo ', ';
+                                echo "inglise";
+                                $found = 1;
+                                $langsStr = 1;
+                                break;
+
+                            case 5:
+                                if ($langsStr != '')
+                                    echo ', ';
+                                echo "vene";
+                                $found = 1;
+                                $langsStr = 1;
+                                break;
+                            case 6:
+                                if ($langsStr != '')
+                                    echo ', ';
+                                echo "saksa";
+                                $found = 1;
+                                $langsStr = 1;
+                                break;
+                        }
+                        if ($found == 0 && $v != '') {
+                            if ($langsStr != '')
+                                echo ', ';
+                            echo $v;
+                            $langsStr = 1;
+                        }
+                    }
+                }
+//        if($this->event['languages'] == 1){
+//     echo "inglise";}elseif($this->event['languages'] == 2){
+//         echo "vene";
+//     }elseif($this->event['languages'] == '1,2'){
+//          echo "inglise & vene";
+//     }elseif($this->event['languages'] == '3,5'){
+//          echo "inglise & vene";
+//     }
+                ?></p>
+
+            <p><b>Grupi suurus:</b> <?php
+                echo $this->event['size'];
+                ?></p>
+            <p><b>Ettevõtmise ulatus:</b> <?php
+                echo $this->event['coverage'];
+                ?></p>
+            <p><b>Kontaktinfo lisainfo saamiseks:</b> <?php
+                echo $this->event['contacts'];
+                ?></p>
+            <p><b>Täiendav teave:</b>     <?php
+                echo $this->event['additionalInfo'];
+                ?></p>
+            <a href="#" class="back_bot"><-tagasi</a>
+        </div>
+
+    </div>
+    <div id="right-side">
+        <div id="pic">
+            <img src="img/events/<?php echo @$this->event['logo'] ?>" style="width:200px;"  alt="<?php echo $this->event['title']; ?>" align="right" />
+        </div>
+        <form id="submitForm" method="link" action="assign/<?php echo $this->event['id']; ?>"> <!--<a href="assign/<?php echo $this->event['id']; ?>" >-->
+            <input type="submit" value="" />
+        </form>
+    <a id="facebook" title="send to Facebook" href="http://www.facebook.com/sharer.php?s=100&p[title]=<?php echo $this->event['title']; ?>&p[summary]=<?php echo $this->event['description']; ?>&p[url]=http://mitteformaalne.ee/kalendar/event/<?php echo $this->event['id']; ?>&p[images][0]=http://mitteformaalne.ee/img/events/<?php echo @$this->event['logo'] ?>" target="_blank"></a>
+    <a href="http://twitter.com/home?status=Leidsin põneva koolituse Mitteformaalsest veebist: http://mitteformaalne.ee/kalendar/event/<?php echo $this->event['id']; ?>&p[images][0]=http://mitteformaalne.ee/img/events/<?php echo @$this->event['logo'] ?>" id="twitter"></a>
+        <p>Jaga koolitust sõpradega :)</p>
+    </div>
+</div>
+<!--I have started content upto here -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.openform').toggle(function(){
+            $('.emailForm').fadeIn(500);
+            return false;
+        },
+        function(){
+            $('.emailForm').fadeOut(500);
+            return false;
+        }
+    );
+    });
+</script>

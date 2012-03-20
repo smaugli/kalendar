@@ -1,0 +1,34 @@
+html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+ 
+
+
+#menu ul.sf-shadow ul {
+	background:	none;
+}
+
+#nodecontent {
+	background: url(../images/content_bg.jpg) top center no-repeat;
+	margin: auto;
+	padding: 18px 37px 0 17px;
+	position: relative;
+}
+
+#tagtabs dt, #loctabs dt {
+	width: 25%;
+}
+
+#tagtabs dd, #loctabs dd {
+	width: 70%;
+}
+
+.total {
+	font-size: 11px;
+}
+
+div.datepicker th.datepickerMonth{
+	font-size: 10px;
+	width: 70px;
+	white-space: nowrap;
+}

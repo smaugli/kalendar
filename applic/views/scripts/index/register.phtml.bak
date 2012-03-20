@@ -1,0 +1,112 @@
+<?php
+if(count($this->error) > 0){
+    foreach($this->error as $error){
+        var_Dump($error);
+        echo "<br />";
+    ?>
+
+<?php } }?>
+<form action="" method="post" enctype="multipart/form-data">
+    <p>Kui oled mõne organisatsiooni alla kuuluv koolitaja, siis palun vali allpool olevast rippmenüüst 
+    oma organisatsioon. Kui Sinu organisatsiooni rippmenüüs pole, siis palun klikka rippmenüü kõrval olevat linki "lisa organisatsioon" ning alusta organisatsiooni
+    registreerimisest!</p>
+    <table>
+           <tr>
+            <td>
+
+                <label>Organisation : </label></td><td>
+                <select name="organisation">
+                    <option></option>
+                    <?php
+                    if(count($this->organisations) > 0){
+
+                        foreach ($this->organisations as $organisation){
+
+                    ?>
+                    <option value="<?php echo $organisation['id']; ?>"
+                            <?php
+                            if($this->data['organisation'] == $organisation['id']){
+                                echo "Selected";
+                            }
+                            ?>
+                            ><?php echo $organisation['name']; ?></option>
+                    <?php } }?>
+                </select>
+                    <a href="index/organization/add">Lisa organisatsioon</a>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Kasutajanimi:* </label></td><td><input type="text" name="username" value="<?php echo @$this->data['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Parool:* </label></td><td><input type="password" name="password" value="<?php echo @$this->data['password'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Email:* </label></td><td><input type="text" name="email" value="<?php echo @$this->data['email'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Eesnimi:* </label></td><td><input type="text" name="name" value="<?php echo @$this->data['name'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Perekonnanimi:* </label></td><td><input type="text" name="surname" value="<?php echo @$this->data['surname'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Aadress: </label></td><td><input type="text" name="address" value="<?php echo @$this->data['address'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Aadress avalik? </label></td><td><input type="checkbox" name="publicAdrress"  value="1" <?php //echo @$this->data->publicAdrress ?> /></td>
+        </tr>
+        <tr>
+            <td><label>Maakond: </label></td><td>
+                <select name="county">
+                    <option></option>
+                    <?php
+                    if(count($this->counties) > 0){
+                        foreach($this->counties as $county){
+                            ?>
+                    <option value="<?php echo $county['id'] ?>"
+                            <?php
+                            if($this->data['county'] == $county['id']){
+                                echo "Selected";
+                            }
+                            ?>
+                            ><?php echo $county['name'] ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Telefon: </label></td><td><input type="text" name="phone" value="<?php echo @$this->data['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Telefon avalik? </label></td><td><input type="checkbox" name="publicPhone" value="1" <?php // echo @$this->data->publicPhone ?> /></td>
+        </tr>
+        <tr>
+            <td><label>Kodulehekülg: </label></td><td><input type="text" name="website" value="<?php if($this->data['website'] !='') {echo $this->data['website'];}else{echo 'http://';} ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Skype: </label></td><td><input type="text" name="skype" value="<?php echo @$this->data['skype'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>LinkedIn URL: </label></td><td><input type="text" name="linkedIn" value="<?php if($this->data['linkedIn'] != '') {echo $this->data['linkedIn'];}else{echo 'http://';} ?>" /></td>
+        </tr>
+        <tr>
+            <td><label>Twitter URL: </label></td><td><input type="text" name="twitter" value="<?php if($this->data['twitter'] != '') {echo $this->data['twitter'];}else{echo 'http://';} ?>" /></td>
+        </tr>
+        <tr>
+            <td> <label>Sugu: </label></td><td><p>male<input type="radio" name="sex" value="male" />female<input type="radio" name="sex" value="female" /></p></td>
+        </tr>
+        <tr>
+            <td> <label>Foto: </label></td><td> <input type="file" name="photo" /></td>
+        </tr>
+     
+        <tr>
+            <td colspan="2"><input type="submit" value="Registreerun" />
+</td>
+        </tr>
+
+    </table>
+</form>

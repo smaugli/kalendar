@@ -1,0 +1,270 @@
+@font-face {
+	font-family: 'ChunkFiveRoman';
+    src: url('../css/webfonts/chunkfive-webfont.eot');
+    src: url('../css/webfonts/chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../css/webfonts/chunkfive-webfont.woff') format('woff'),
+         url('../css/webfonts/chunkfive-webfont.ttf') format('truetype'),
+         url('../css/webfonts/chunkfive-webfont.svg#ChunkFiveRoman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+#kalender, #wrapper{
+	position: relative;
+	margin: auto;
+	margin-top:50px;	
+	width: 658px;
+	
+}
+.shadow{
+	-moz-box-shadow:    3px 10px 10px 6px #ccc;
+	-webkit-box-shadow: 3px 10px 10px 6px #ccc;
+	box-shadow:         3px 10px 10px 6px #ccc;	
+}
+table{
+	position: absolute;
+	
+	outline: 0;
+	border: 0;	
+	margin: auto;
+}
+#spiraal_start{
+	background: url('../images/spiraal_start.jpg');
+	background-repeat: no-repeat;
+	height: 22px;
+	
+	
+}
+#spiraal{
+	background: url('../images/spiraal_finish.jpg');
+	background-repeat: no-repeat;
+	height: 34px;
+}
+#head{
+	background: url('../images/head.jpg');
+	height: 117px;
+}
+#head ul {
+    margin: 58px 0 0 185px;
+}
+.navi {
+    color: #FFFFFF;
+    float: left;
+    font-family: 'ChunkFiveRoman';
+    font-size: 19px;
+    padding-top: 7px;
+}
+.year {	
+    color: #FFFFFF;
+    float: left;
+    font-family: 'ChunkFiveRoman';
+    font-size: 25px;
+    text-decoration: none;
+    padding: 0px 10px 0px 10px;
+}
+#ep , #et, #ek, #en, #er, #el, #epp{
+	text-align: center;
+	font-size: 26px;
+	font-family: 'arial';
+	font-weight: bold;
+	height: 35px;
+	background: url('../images/e.jpg');
+}
+#et{
+	background: url('../images/t.jpg');
+}
+#ek{
+	background: url('../images/k.jpg');
+}
+#en{
+	background: url('../images/n.jpg');
+}
+#er{
+	background: url('../images/r.jpg');
+}
+#el{
+	background: url('../images/l.jpg');
+}
+#epp{
+	background: url('../images/p.jpg');
+}
+tbody td{
+	background: url('../images/bg.jpg');
+	height: 79px;
+	width: 94px;
+}
+tbody h1{
+	float: left;
+	font-family: 'arial';
+    font-size: 30px;
+    font-weight: bold;
+    margin: -38px 0px 0px 8px;
+	color: #afb1b5;
+}
+.last td {
+	height: 30px;
+}
+
+.main {		
+	position: absolute;		
+}
+.main a{			
+	display: block;
+	font-size: 12px;
+	font-family: 'arial';
+	color: #535353;
+	margin: 10px 0px 0px 18px;
+	text-decoration: none;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+#kalender li{
+	list-style-type: none;
+}
+
+.tooltip ul {
+	display: none; 
+ }
+.tooltip ul li a{
+	margin: 0px;
+	padding: 10px 10px 5px 10px;
+	text-decoration: none;
+	font-size: 12px;
+	font-family: 'arial';	
+	color:#535353;
+	float: none;
+}
+.tooltip ul li a:hover{		
+	color:#fff;
+	text-decoration:none;
+}
+.tool{
+	position: absolute;
+	top: 15px;
+	left: 0px;	
+	width: 67px;
+	background-image: url('../images/arrow.png');
+	background-repeat: no-repeat;
+}
+
+.tooltip li:hover ul  {
+	margin-top: 0px;
+	display: block;
+	margin-left: 26px;
+	-moz-box-shadow:    3px 3px 5px 3px #ccc;
+	-webkit-box-shadow: 3px 3px 5px 3px #ccc;
+	box-shadow:         3px 3px 5px 3px #ccc;	
+	background-image: url('../images/tooltip_bg.png');
+}
+/* Koolitused*/
+#header{
+	background-image: url('../images/spiraal2.jpg');
+	height: 53px;
+}
+#content{
+	background-color: #ededed;
+	height: 442px;
+}
+#left-side{
+	position: relative;
+	width: 420px;
+	 height: 438px;
+}
+.back, .back_bot{
+	font-size: 19px;
+    padding: 6px 0px 0px 15px ;
+    display:  block;
+    font-family: "arial";
+	float: left;
+}
+#content h1{
+	float: left;
+	font-size: 24px;
+	font-family: "arial";	
+	font-weight: bold;
+	color: #22242d;
+	margin: 20px 0px 0px 45px
+}
+#subtitle{
+	float: left;
+	margin-left: 30px;
+	font-size: 11px;
+	font-family: "arial";
+	color: #22242d;
+	font-weight: bold;
+	margin: 3px 0px 0px 165px
+}
+#subtitle a{
+	padding-left: 10px;
+}
+#txt1 {
+    float: left;
+    font-size: 14px;
+    padding: 11px 0px 0px 21px ;
+    font-family: "arial";
+    line-height: 121%;
+}
+#txt2{
+	padding: 18px 0px 0px 20px;
+    float:  left;
+    font-family: "arial";
+    font-size: 14px;
+    line-height: 119%;
+}
+.indent{
+	float: left;
+	padding-left: 14px;
+}
+.back_bot{
+	left: -8px;
+    position: absolute;
+    top: 394px;
+}
+#right-side{
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 230px;
+    height: 438px;
+}
+#pic{
+	background-image: url("../images/picture.jpg");
+    height: 177px;
+    margin: 26px 0 0 11px;
+    width: 194px;	
+	border: solid #bab6b6 3px;
+}
+input{
+	background: url("../images/button_bg.png") repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    font-size: 12px;
+    height: 55px;
+    outline: medium none;
+    width: 162px;
+    margin: 17px 0 0 27px;
+}
+#facebook, #twitter{
+	background-image: url("../images/facebook.png");
+	height: 38px;
+	width: 36px;
+	display: block;
+	float: left;
+	margin: 8px 0px 0px 65px;
+}
+#twitter{
+	background-image: url("../images/twitter.png");
+	margin: 8px 0px 0px 7px;
+}
+#right-side p{
+	float: left;
+	font-family: "Tahoma";
+	font-size:	10px;
+	font-weight: bold;
+	color: #575252;
+	padding: 6px 0px 0px 30px;
+}
